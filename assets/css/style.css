@@ -1,0 +1,96 @@
+/* navigation style */
+    #navigation {
+        position: relative; /* position des elements wird relativ zu seiner ursprünglichen position gesetzt, sodass es verschoben werden kann, ohne den restlichen inhalt zu beeinflussen */ 
+        width: 100%;
+        color: white;
+        overflow: hidden; /* verhindert, dass der inhalt der navigation über den definierten bereich hinaus sichtbar wird, z. B. bei animationen oder overflow-effekten. */ 
+        padding: 10px;
+    }
+
+    /* unsichtbare checkbox */
+    #menu-toggle {
+        display: none;
+    }
+
+/* burger-symbol style */
+    .burger-icon {
+        display: inline-block; /* element wird wie ein block behandelt, bleibt aber im selben fluss wie text oder andere inline-elemente. */
+        cursor: pointer;
+        position: relative; /* relativ positioniert, um den z-index richtig zu nutzen */
+        z-index: 1100; /* höher als z-index des menüs gesetzt, sodass das menü nicht das icon verdeckt */
+    }
+
+    .burger-icon .bar1, 
+    .burger-icon .bar2, 
+    .burger-icon .bar3 {
+        width: 35px;
+        height: 5px;
+        background-color: rgb(0, 0, 0);
+        margin: 6px 0;
+        transition: 0.4s; /* sorgt dafür, dass eine veränderung über 0,4 sekunden sanft animiert wird */
+    }
+
+/* wenn das menü (über die checkbox #menu-toggle) aktiviert ist (checked), wird das burger menü animiert */
+    /* die erste linie wird um 11px verschoben und um -45 grad rotiert, sodass sie wie ein "X" aussieht */
+    #menu-toggle:checked + .burger-icon .bar1 {
+        transform: translate(0, 11px) rotate(-45deg);
+    }
+    /* die zweite linie wird unsichtbar gemacht (opacity 0), um platz für die animation zu schaffen */
+    #menu-toggle:checked + .burger-icon .bar2 {
+        opacity: 0;
+    }
+    /* die dritte linie wird um 11px verschoben und um 45 grad rotiert, sodass sie ebenfalls zum "X" wird */
+    #menu-toggle:checked + .burger-icon .bar3 {
+        transform: translate(0, -11px) rotate(45deg);
+    }
+
+/* menü styles */
+    #meny {
+        position: fixed;
+        top: 0;
+        left: -250px; /* startposition außerhalb des bildschirms */
+        height: 100vh;
+        width: 250px;
+        background-color: #888888;
+        transition: left 0.4s ease-in-out;
+        z-index: 999; /* geringer als das burger-symbol */
+        display: flex; /* aktiviert flexbox-layout, bei dem die elemente innerhalb des containers flexibel ausgerichtet werden */
+        flex-direction: column; /* bestimmt, dass die flexbox-kinder-elemente vertikal (in einer spalte) und nicht horizontal (in einer reihe) angeordnet werden */
+        align-items: center; /* ausrichtung zentriert */
+        justify-content: center; /* richtet die flexbox-kinder entlang der hauptachse (in diesem fall vertikal, aufgrund von flex-direction: column) aus und platziert sie in der mitte des containers */
+    }
+
+    /* menü sichtbar machen */
+    #menu-toggle:checked ~ #meny {
+        left: 0;
+    }
+
+    /* listen style */
+    #meny ul {
+        list-style: none; /* listen-symbole entfernen */
+        padding: 0;
+        margin: 0;
+        text-align: left;
+    }
+
+    #meny li {
+        margin: 20px 0;
+    }
+
+    #meny li a {
+        text-decoration: none;
+        color: rgb(0, 0, 0);
+        font-size: 18px;
+        text-transform: uppercase; /* versalien */
+        transition: color 0.3s ease-in-out;
+    }
+
+    /* farbe beim hover */
+    #meny li a:hover {
+        color: #3b6566;
+    }
+
+    /* menü einklappen, wenn das burger-symbol erneut geklickt wird */
+    #menu-toggle:not(:checked) ~ #meny {
+        left: -250px;
+    }
