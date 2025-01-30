@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mein Portfolio</title>
-    <meta name="author" content="Martrikelnummer 4239178"/>
-    <link href="assets/css/style.css" rel="stylesheet"/>
+    <meta name="author" content="Martrikelnummer 4239178" />
+    <link href="assets/css/style.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -14,7 +15,7 @@
         <!-- navigation - burger menü animiert | w3 schools -->
         <nav id="navigation">
             <!-- unsichtbare checkbox -->
-            <input type="checkbox" id="menu-toggle"/>
+            <input type="checkbox" id="menu-toggle" />
 
             <!-- burger symbol -->
             <label for="menu-toggle" class="burger-icon">
@@ -36,69 +37,64 @@
     </header>
 
     <!-- slideshow/carousel | ebene 11 -->
-        <!-- sichtfenster -->
-        <div class="cssSlider">
+    <!-- sichtfenster -->
+    <div class="cssSlider">
 
-            <!-- die inputs um den slider zu steuern -->
-            <input type="radio" name="slider" id="slide01" checked="checked">
-            <input type="radio" name="slider" id="slide02">
-            <input type="radio" name="slider" id="slide03">
-            <input type="radio" name="slider" id="slide04">
+        <!-- die inputs um den slider zu steuern -->
+        <input type="radio" name="slider" id="slide01" checked="checked">
+        <input type="radio" name="slider" id="slide02">
+        <input type="radio" name="slider" id="slide03">
+        <input type="radio" name="slider" id="slide04">
 
-            <!-- die einzelnen slides, als liste angelegt -->
-            <ul class="sliderElements">
-                <li>
-                    <figure>
-                        <img src="assets/images/Slider_Portfolio.png" alt="Portfolioschriftzug mit Säntis im Hintergrund">
-                    </figure>
-                </li>
-                <li>
-                    <figure>
-                        <img src="assets/images/Slider_Webdesign.png" alt="Webdesign">
-                    </figure>
-                </li>
-                <li>
-                    <figure>
-                        <img src="assets/images/Slider_Mobil.png" alt="Mobile Design">
-                    </figure>
-                </li>
-            </ul>
+        <!-- die einzelnen slides, als liste angelegt -->
+        <ul class="sliderElements">
+            <li>
+                <figure>
+                    <img src="assets/images/Slider_Portfolio.png" alt="Portfolioschriftzug mit Säntis im Hintergrund">
+                </figure>
+            </li>
+            <li>
+                <figure>
+                    <img src="assets/images/Slider_Webdesign.png" alt="Webdesign">
+                </figure>
+            </li>
+            <li>
+                <figure>
+                    <img src="assets/images/Slider_Mobil.png" alt="Mobile Design">
+                </figure>
+            </li>
+        </ul>
 
-            <!-- steuerung der slides -->
-            <ul class="sliderControls">
-                <li><label for="slide01"></label></li>
-                <li><label for="slide02"></label></li>
-                <li><label for="slide03"></label></li>
-            </ul>
-        </div>
-
-        <!-- wird hier nicht benötigt, aber für die unterseiten
-        <div id="sliderHeading">
-            <h1>Portfolio</h1>
-        </div> -->
+        <!-- steuerung der slides -->
+        <ul class="sliderControls">
+            <li><label for="slide01"></label></li>
+            <li><label for="slide02"></label></li>
+            <li><label for="slide03"></label></li>
+        </ul>
+    </div>
 
     <!-- block 01: Zu meiner Person -->
     <section id="zuMeinerPerson" class="content-block">
-        <div id="profilbild">
-            <img src="assets/images/Profilbild.png" alt="Profilbild">
-        </div>
 
         <div class="content-text">
             <h2><span class="section-number">01</span>Zu meiner Person</h2>
             <h3>Carina Schlachter</h3>
             <p>
-                Ich bin wissbegierig, zielstrebig, strukturiert, sehr lernfähig und scheue keine Arbeit. Teamwork und ein gutes Arbeitsklima sind mir sehr wichtig, denn nur zusammen entwickelt man die besten Lösungen.
+                Ich bin wissbegierig, zielstrebig, strukturiert, sehr lernfähig und scheue keine Arbeit. Teamwork und
+                ein gutes Arbeitsklima sind mir sehr wichtig, denn nur zusammen entwickelt man die besten Lösungen.
             </p>
             <p>
-                In meiner Freizeit lese ich gerne Bücher (Deutsch und Englisch) und halte mich mit Sport fit: Yoga, Laufen oder ein pulstreibendes HIIT. Außerdem liebe ich es, am Wochenende aufwendigere Gerichte zu kochen und sie mit Freunden oder Familie zu genießen.
+                In meiner Freizeit lese ich gerne Bücher (Deutsch und Englisch) und halte mich mit Sport fit: Yoga,
+                Laufen oder ein pulstreibendes HIIT. Außerdem liebe ich es, am Wochenende aufwendigere Gerichte zu
+                kochen und sie mit Freunden oder Familie zu genießen.
             </p>
             <button onclick="location.href='kompetenzen.html'">Kompetenzen</button> <!-- unterseite fehlt noch -->
         </div>
-    </section>
-    
-    <!-- zwischenzitat 1 -->
-    <section id="zitat1" class="quote">
-        <h2>Zusammen entwickelt man die besten Lösungen</h2>
+
+        <div id="profilbild">
+            <img src="assets/images/Profilbild.png" alt="Profilbild">
+        </div>
+
     </section>
 
     <!-- block 2: Mein Werdegang -->
@@ -106,7 +102,7 @@
         <div class="content-text">
             <h2><span class="section-number">02</span>Mein Werdegang</h2>
             <h3>Bildung</h3>
-            
+
             <section id="bildung-grundschule">
                 <h3>2007-2011</h3>
                 <h4>Grundschule</h4>
@@ -183,42 +179,43 @@
         </div>
     </section>
 
-    <!-- zwischenzitat 2 -->
-        <section id="zitat2" class="quote">
-            <h2>Teamwork und ein gutes Arbeitsklima sind mir sehr wichtig</h2>
-        </section>
+    <!-- zwischenzitat 1 -->
+    <section id="zitat1" class="quote">
+        <h2>Zusammen entwickelt man die besten Lösungen</h2>
+    </section>
 
     <!-- block 3: Meine Projekte -->
     <section id="MeineProjekte" class="content-block">
         <div class="content-text">
             <h2><span class="section-number">03</span>Meine Projekte</h2>
-            
+
             <!-- projekt 1 -->
             <div class="project-gallery">
                 <a href="projekt1.html">
-                    <img src="assets/images/projekt1.png" alt="Projekt 1">
-                    <p>Projekt 1</p>
+                    <img src="assets/images/Slider_Webdesign.png" alt="Projekt 1">
                 </a>
 
-            <!-- projekt 2 -->
-            <a href="projekt2.html">
-                <img src="assets/images/projekt2.png" alt="Projekt 2">
-                <p>Projekt 2</p>
-            </a>
+                <!-- projekt 2 -->
+                <a href="projekt2.html">
+                    <img src="assets/images/Slider_Mobil.png" alt="Projekt 2">
+                </a>
             </div>
-        </div>    
-     </section>
+        </div>
+    </section>
 
-     <footer>
+    <button id="backToTop">↑</button>
+
+    <footer>
         <p>
             &copy; 2025 Carina Schlachter
         </p>
         <p>
-            88131 Lindau | Rangers 65 | 
-            <a href="mailto:carina.schlachter@iu-study.org">carina.schlachter@iu-study.org</a> | 
+            88131 Lindau | Rangers 65 |
+            <a href="mailto:carina.schlachter@iu-study.org">carina.schlachter@iu-study.org</a> |
             <a href="tel:+4915205891524">+49 152 05891524</a>
         </p>
-     </footer>
+    </footer>
 
 </body>
+
 </html>
