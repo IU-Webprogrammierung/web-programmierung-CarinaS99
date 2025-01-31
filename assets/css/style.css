@@ -34,6 +34,7 @@ a {
 
 html {
     overflow-y: scroll;
+    overflow-x: hidden;
     /* vertikale scrollbalken immer sichtbar */
     height: 100%;
     /* volle höhe des viewports */
@@ -269,4 +270,18 @@ input[type="radio"]#slide03:checked~.sliderElements {
     background-color: rgba(255, 255, 255, 0.8);
     transform: scale(1.2);
     /* leichtes vergrößern bei hover */
+}
+
+/* hero image */
+.hero-image {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    z-index: 999; /* sicherstellen, dass das bild unter dem burger-menü liegt */
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* bild wird so skaliert, dass es den container vollständig ausfüllt und die proportionen beibehält */
 }
