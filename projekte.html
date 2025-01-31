@@ -11,13 +11,14 @@
 
 <body>
 
-    <header>
+    <header role="banner">
+        <h1 class="h1-hidden">Meine Projekte</h1> <!-- aus SEO- und Screenreader-Gründen eingefügt -->
         <!-- navigation - burger menü animiert | w3 schools -->
-        <nav id="navigation">
+        <nav id="navigation" role="navigation" aria-label="Hauptnavigation">
             <!-- unsichtbare checkbox -->
-            <input type="checkbox" id="menu-toggle" />
+            <input type="checkbox" id="menu-toggle" aria-label="Menü anzeigen" aria-expanded="false" />
             <!-- burger symbol -->
-            <label for="menu-toggle" class="burger-icon">
+            <label for="menu-toggle" class="burger-icon" aria-label="Menü öffnen" aria-hidden="true">
                 <div class="bar1"></div>
                 <div class="bar2"></div>
                 <div class="bar3"></div>
@@ -25,122 +26,140 @@
 
             <!-- liste der menüpunkte - seiten sind noch nicht erstellt und verlinkt -->
             <div id="meny">
-                <ul class="menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="projekte.html">Projekte</a></li>
-                    <li><a href="kompetenzen.html">Kompetenzen</a></li>
-                    <li><a href="kontakt.html">Kontakt</a></li>
+                <ul class="menu" role="menu">
+                    <li><a href="index.html" role="menuitem">Home</a></li>
+                    <li><a href="projekte.html" role="menuitem">Projekte</a></li>
+                    <li><a href="kompetenzen.html" role="menuitem">Kompetenzen</a></li>
+                    <li><a href="kontakt.html" role="menuitem">Kontakt</a></li>
                 </ul>
             </div>
         </nav>
     </header>
 
-    <!-- slideshow/carousel | ebene 11 -->
-    <!-- sichtfenster -->
-    <div class="cssSlider">
+    <main role="main">
 
-        <!-- die inputs um den slider zu steuern -->
-        <input type="radio" name="slider" id="slide01" checked="checked">
-        <input type="radio" name="slider" id="slide02">
+        <!-- slideshow/carousel | ebene 11 -->
+        <!-- sichtfenster -->
+        <div class="cssSlider">
 
-        <!-- die einzelnen slides, als liste angelegt -->
-        <ul class="sliderElements">
-            <li>
-                <figure>
-                    <img src="assets/images/Slider_Webdesign.png" alt="Webdesign">
-                </figure>
-            </li>
-            <li>
-                <figure>
-                    <img src="assets/images/Slider_Mobil.png" alt="Mobile Design">
-                </figure>
-            </li>
-        </ul>
+            <!-- die inputs um den slider zu steuern -->
+            <input type="radio" name="slider" id="slide01" checked="checked">
+            <input type="radio" name="slider" id="slide02">
 
-        <!-- steuerung der slides -->
-        <ul class="sliderControls">
-            <li><label for="slide01"></label></li>
-            <li><label for="slide02"></label></li>
-        </ul>
-    </div>
+            <!-- die einzelnen slides, als liste angelegt -->
+            <ul class="sliderElements">
+                <li>
+                    <figure>
+                        <img src="assets/images/Slider_Webdesign.png"
+                            alt="Webdesign Schriftzug mit Mock-ups von zwei Laptops und einem Handy darunter">
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <img src="assets/images/Slider_Mobil.png"
+                            alt="Mobile Design Schriftzug mit Mock-ups von Handys rechts daneben">
+                    </figure>
+                </li>
+            </ul>
 
-    <!-- block 01: Stadtrallye -->
-    <section id="stadtrallye" class="content-block">
-
-        <div class="content-text">
-            <h2><span class="section-number">01</span>Stadtrallye - Webdesign</h2>
-            <p>
-                Im Rahmen dieses Projekts habe ich eine interaktive Stadtrallye konzipiert und gestaltet. Der Prozess
-                umfasste die Entwicklung eines Grundkonzepts, eine umfassende Wettbewerbsanalyse sowie die Definition
-                der Zielgruppe anhand von Personas. Durch Moodboards und Wireframes entstand eine nutzerzentrierte
-                Informationsarchitektur, die den Buchungsprozess und die Navigation optimiert.
-            </p>
-            <p>
-                Besonderer Fokus lag auf der Gestaltung einer intuitiven User Experience, der konsistenten Umsetzung des
-                Styleguides sowie der responsiven Anpassung für verschiedene Endgeräte. Iterative Anpassungen und Tests
-                sorgten für ein durchdachtes, ansprechendes Screendesign. Das Projekt bot mir wertvolle Einblicke in
-                UX-Strategien, Interaktionsdesign und die Arbeit mit Figma.
-            </p>
-
-            <!-- verlinkung zur dropbox in einem separaten tap -->
-            <button
-                onclick="window.open('https://www.dropbox.com/scl/fo/uz9xacqm6bugp0y3f2z9k/AH8UPyB1HT43tnq_nV_XYXM?rlkey=18g1cmpauszd7vjbrkm16thub&st=esivzyy4&dl=0', '_blank')">
-                Zum Portfolio
-            </button>
+            <!-- steuerung der slides -->
+            <ul class="sliderControls">
+                <li><label for="slide01"></label></li>
+                <li><label for="slide02"></label></li>
+            </ul>
         </div>
 
-        <div class="project-image-container">
-            <img src="assets/images/Webdesign_1.png" alt="Konzeptionsbilder">
-            <img src="assets/images/Webdesign_2.png" alt="Wireframes">
-            <img src="assets/images/Webdesign_3.png" alt="Mock-ups">
-        </div>
+        <!-- block 01: Stadtrallye -->
+        <section id="stadtrallye" class="content-block">
 
-    </section>
+            <div class="content-text">
+                <h2><span class="section-number">01</span>Stadtrallye - Webdesign</h2>
+                <p>
+                    Im Rahmen dieses Projekts habe ich eine interaktive Stadtrallye konzipiert und gestaltet. Der
+                    Prozess
+                    umfasste die Entwicklung eines Grundkonzepts, eine umfassende Wettbewerbsanalyse sowie die
+                    Definition
+                    der Zielgruppe anhand von Personas. Durch Moodboards und Wireframes entstand eine nutzerzentrierte
+                    Informationsarchitektur, die den Buchungsprozess und die Navigation optimiert.
+                </p>
+                <p>
+                    Besonderer Fokus lag auf der Gestaltung einer intuitiven User Experience, der konsistenten Umsetzung
+                    des
+                    Styleguides sowie der responsiven Anpassung für verschiedene Endgeräte. Iterative Anpassungen und
+                    Tests
+                    sorgten für ein durchdachtes, ansprechendes Screendesign. Das Projekt bot mir wertvolle Einblicke in
+                    UX-Strategien, Interaktionsdesign und die Arbeit mit Figma.
+                </p>
 
-    <!-- block 02: Urban Gardening -->
-    <section id="urbanGardening" class="content-block">
+                <!-- verlinkung zur dropbox in einem separaten tap -->
+                <a href="https://www.dropbox.com/scl/fo/uz9xacqm6bugp0y3f2z9k/AH8UPyB1HT43tnq_nV_XYXM?rlkey=18g1cmpauszd7vjbrkm16thub&st=esivzyy4&dl=0"
+                    target="_blank" class="button" aria-label="Webdesign-Projekt-Datei in Dropbox ansehen">
+                    Zum Portfolio
+                </a>
+            </div>
 
-        <div class="content-text">
-            <h2><span class="section-number">02</span>Urban Gardening - Mobile Design</h2>
-            <p>
-                Dieses Projekt umfasst die Konzeption und Gestaltung einer Mobile-App für Urban Gardening. Ziel war es,
-                Nutzern eine einfache Pflanzenberatung, Community-Interaktion und einen Shopfinder zu bieten.
-            </p>
-            <p>
+            <div class="project-image-container">
+                <img src="assets/images/Webdesign_1.png" alt="Konzeptionsbilder mit Personas und einem Moodboard">
+                <img src="assets/images/Webdesign_2.png"
+                    alt="Wireframes von einer Tourbuchungsseite als Desktop und Mobile Version">
+                <img src="assets/images/Webdesign_3.png" alt="Mock-up der Stadtrallye-Website auf Laptop und Handy">
+            </div>
 
-                Nach einer Wettbewerbsanalyse und Nutzerrecherche wurden Personas und Storyboards erstellt, um eine
-                benutzerfreundliche Lösung zu entwickeln. Die Gestaltung orientiert sich an bewährten Designprinzipien,
-                mit einer klaren Informationsarchitektur, einem freundlichen Schriftbild und einer natürlichen
-                Farbpalette.
-            </p>
-            <p>
-                Besonderes Augenmerk lag auf einer intuitiven Navigation und der optimierten Nutzerführung, um die
-                wichtigsten Funktionen schnell zugänglich zu machen.
-            </p>
+        </section>
 
-            <!-- verlinkung zur dropbox in einem separaten tap -->
-            <button
-                onclick="window.open('https://www.dropbox.com/scl/fo/uz9xacqm6bugp0y3f2z9k/AH8UPyB1HT43tnq_nV_XYXM?rlkey=18g1cmpauszd7vjbrkm16thub&st=esivzyy4&dl=0', '_blank')">
-                Zum Portfolio
-            </button>
-        </div>
+        <!-- block 02: Urban Gardening -->
+        <section id="urbanGardening" class="content-block">
 
-        <div class="project-image-container">
-            <img src="assets/images/Mobil_1.png" alt="Konzeptionsbilder">
-            <img src="assets/images/Mobil_2.png" alt="Wireframes">
-            <img src="assets/images/Mobil_3.png" alt="Mock-ups">
-        </div>
+            <div class="content-text">
+                <h2><span class="section-number">02</span>Urban Gardening - Mobile Design</h2>
+                <p>
+                    Dieses Projekt umfasst die Konzeption und Gestaltung einer Mobile-App für Urban Gardening. Ziel war
+                    es,
+                    Nutzern eine einfache Pflanzenberatung, Community-Interaktion und einen Shopfinder zu bieten.
+                </p>
+                <p>
 
-    </section>
+                    Nach einer Wettbewerbsanalyse und Nutzerrecherche wurden Personas und Storyboards erstellt, um eine
+                    benutzerfreundliche Lösung zu entwickeln. Die Gestaltung orientiert sich an bewährten
+                    Designprinzipien,
+                    mit einer klaren Informationsarchitektur, einem freundlichen Schriftbild und einer natürlichen
+                    Farbpalette.
+                </p>
+                <p>
+                    Besonderes Augenmerk lag auf einer intuitiven Navigation und der optimierten Nutzerführung, um die
+                    wichtigsten Funktionen schnell zugänglich zu machen.
+                </p>
 
-    <footer>
-        <button id="backToTop">↑</button>
+                <!-- verlinkung zur dropbox in einem separaten tap -->
+                <a href="https://www.dropbox.com/scl/fo/uz9xacqm6bugp0y3f2z9k/AH8UPyB1HT43tnq_nV_XYXM?rlkey=18g1cmpauszd7vjbrkm16thub&st=esivzyy4&dl=0"
+                    target="_blank" class="button" aria-label="Mobile-Design-Projekt-Datei in Dropbox ansehen">
+                    Zum Portfolio
+                </a>
+            </div>
+
+            <div class="project-image-container">
+                <img src="assets/images/Mobil_1.png"
+                    alt="Konzeptionsbilder von einer Persona, einem Moodboard und einem Storyboard">
+                <img src="assets/images/Mobil_2.png" alt="Wireframes vom Home-Screen und Erinnerung-Screen">
+                <img src="assets/images/Mobil_3.png"
+                    alt="Mock-ups vom Start-Screen, Tauschbörse-Screen und Home-Screen">
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer role="contentinfo">
+        <button id="backToTop" aria-label="Nach oben scrollen">
+            <span aria-hidden="true">↑</span>
+        </button>
         <p>
             &copy; 2025 Carina Schlachter
         </p>
         <p>
             88131 Lindau | Rangers 65 |
-            <a href="mailto:carina.schlachter@iu-study.org">carina.schlachter@iu-study.org</a> |
+            <a href="mailto:carina.schlachter@iu-study.org"
+                aria-label="E-Mail an Carina Schlachter senden">carina.schlachter@iu-study.org</a> |
             <a href="tel:+4915205891524">+49 152 05891524</a>
         </p>
     </footer>

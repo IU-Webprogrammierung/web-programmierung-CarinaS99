@@ -11,13 +11,14 @@
 
 <body>
 
-    <header>
+    <header role="banner">
+        <h1 class="h1-hidden">Meine Kompetenzen</h1> <!-- aus SEO- und Screenreader-Gründen eingefügt -->
         <!-- navigation - burger menü animiert | w3 schools -->
-        <nav id="navigation">
+        <nav id="navigation" role="navigation" aria-label="Hauptnavigation">
             <!-- unsichtbare checkbox -->
-            <input type="checkbox" id="menu-toggle" />
+            <input type="checkbox" id="menu-toggle" aria-label="Menü anzeigen" aria-expanded="false" />
             <!-- burger symbol -->
-            <label for="menu-toggle" class="burger-icon">
+            <label for="menu-toggle" class="burger-icon" aria-label="Menü öffnen" aria-hidden="true">
                 <div class="bar1"></div>
                 <div class="bar2"></div>
                 <div class="bar3"></div>
@@ -25,129 +26,143 @@
 
             <!-- liste der menüpunkte - seiten sind noch nicht erstellt und verlinkt -->
             <div id="meny">
-                <ul class="menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="projekte.html">Projekte</a></li>
-                    <li><a href="kompetenzen.html">Kompetenzen</a></li>
-                    <li><a href="kontakt.html">Kontakt</a></li>
+                <ul class="menu" role="menu">
+                    <li><a href="index.html" role="menuitem">Home</a></li>
+                    <li><a href="projekte.html" role="menuitem">Projekte</a></li>
+                    <li><a href="kompetenzen.html" role="menuitem">Kompetenzen</a></li>
+                    <li><a href="kontakt.html" role="menuitem">Kontakt</a></li>
                 </ul>
             </div>
         </nav>
     </header>
 
-    <!-- hero image -->
-    <div class="hero-image">
-        <!-- nur ein Bild anstelle des sliders -->
-        <figure>
-            <img src="assets/images/Slider_Kompetenzen.png" alt="Bild mit Schriftzug Kompetenzen">
-        </figure>
-    </div>
+    <main role="main">
 
-    <!-- block 01: Kompetenzen -->
-    <section id="kompetenzen" class="content-block">
-
-        <div class="content-text">
-            <h2><span class="section-number">01</span>Meine Kompetenzen</h2>
-            <p>
-                Im Februar 2022 habe ich die Ausbildung zur Mediengestalterin erfolgreich abgeschlossen und wurde von
-                meinem Ausbildungsbetrieb, der damaligen Tanner AG - mittlerweile Tanner GmbH - übernommen.
-            </p>
-            <p>
-                Dort war ich in Vollzeit im Katalogmanagement tätig und betreute als Projektleiterin im Marketing
-                verschiedene Kunden in unterschiedlichen Bereichen. Dennoch blieb mein Interesse am digitalen Bereich
-                meiner Ausbildung geweckt.
-            </p>
-            <p>
-                Ich beschäftigte mich verstärkt mit der Vertiefung meiner Kenntnisse und welche
-                Weiterbildungsmöglichkeiten für mich infrage kommen.
-                Nach der einjährigen „Lernpause“ war es dann so weit:
-                Ich war mir sicher, welche Richtung ich einschlagen möchte und startete im September 2023 das UX-Design
-                Studium, welches eine Laufzeit von 36 Monaten hat.
-                Mein Arbeitsverhältnis bei der Tanner GmbH änderte sich daraufhin in Teilzeit.
-            </p>
-
-            <!-- verlinkung zur dropbox in einem separaten tap -->
-            <button
-                onclick="window.open('https://www.dropbox.com/scl/fo/uz9xacqm6bugp0y3f2z9k/AH8UPyB1HT43tnq_nV_XYXM?rlkey=18g1cmpauszd7vjbrkm16thub&st=esivzyy4&dl=0', '_blank')">
-                Zeugnisse
-            </button>
+        <!-- hero image -->
+        <div class="hero-image">
+            <!-- nur ein Bild anstelle des sliders -->
+            <figure>
+                <img src="assets/images/Slider_Kompetenzen.png"
+                    alt="Schreibtisch mit schreibender Hand und Schriftzug Kompetenzen">
+            </figure>
         </div>
-    </section>
 
-    <!-- block 02: Motivation -->
-    <section id="motivation" class="content-block">
+        <!-- block 01: Kompetenzen -->
+        <section id="kompetenzen" class="content-block">
 
-        <div class="content-text">
-            <h2><span class="section-number">02</span>Was mich motiviert</h2>
-            <h3>UX-Design Studium</h3>
-            <p>
-                Obwohl ich bisher überwiegend im Print-Bereich tätig war, fasziniert mich die digitale Seite der
-                Gestaltung zunehmend. In meiner bisherigen Berufserfahrung habe ich erlebt, wie verstärkt auf digitale
-                Technologien wie KI zurückgegriffen und die Digitalisierung von Inhalten vorangetrieben wird. In dieser
-                immer digitalisierten Welt gewinnt die Nutzererfahrung stetig an Bedeutung, was das UX-Design zu einem
-                spannenden und hochrelevanten Bereich macht, den ich gerne weiter erforschen möchte.
-            </p>
+            <div class="content-text">
+                <h2><span class="section-number">01</span>Meine Kompetenzen</h2>
+                <p>
+                    Im Februar 2022 habe ich die Ausbildung zur Mediengestalterin erfolgreich abgeschlossen und wurde
+                    von
+                    meinem Ausbildungsbetrieb, der damaligen Tanner AG - mittlerweile Tanner GmbH - übernommen.
+                </p>
+                <p>
+                    Dort war ich in Vollzeit im Katalogmanagement tätig und betreute als Projektleiterin im Marketing
+                    verschiedene Kunden in unterschiedlichen Bereichen. Dennoch blieb mein Interesse am digitalen
+                    Bereich
+                    meiner Ausbildung geweckt.
+                </p>
+                <p>
+                    Ich beschäftigte mich verstärkt mit der Vertiefung meiner Kenntnisse und welche
+                    Weiterbildungsmöglichkeiten für mich infrage kommen.
+                    Nach der einjährigen „Lernpause“ war es dann so weit:
+                    Ich war mir sicher, welche Richtung ich einschlagen möchte und startete im September 2023 das
+                    UX-Design
+                    Studium, welches eine Laufzeit von 36 Monaten hat.
+                    Mein Arbeitsverhältnis bei der Tanner GmbH änderte sich daraufhin in Teilzeit.
+                </p>
 
-            <!-- verlinkung zur dropbox in einem separaten tap -->
-            <button
-                onclick="window.open('https://www.iu.de/bachelor/ux-design-user-experience-design/fernstudium/', '_blank')">
-                Zum Studiengang
-            </button>
-        </div>
-    </section>
+                <!-- verlinkung zur dropbox in einem separaten tap -->
+                <a href="https://www.dropbox.com/scl/fo/uz9xacqm6bugp0y3f2z9k/AH8UPyB1HT43tnq_nV_XYXM?rlkey=18g1cmpauszd7vjbrkm16thub&st=esivzyy4&dl=0"
+                    target="_blank" class="button" aria-label="Zeugnisse in Dropbox ansehen">
+                    Zeugnisse
+                </a>
+            </div>
+        </section>
 
-    <!-- zwischenzitat 1 -->
-    <aside id="zitat1" class="quote">
-        <h2>Die digitale Seite der Gestaltung fasziniert mich</h2>
-        <div id="bildZitat1">
-            <img src="assets/images/wald.png" alt="Wald">
-        </div>
-    </aside>
+        <!-- block 02: Motivation -->
+        <section id="motivation" class="content-block">
 
-    <!-- block 03: Tools und Sprachen -->
-    <section id="tools-sprachen" class="content-block">
-        <div class="content-text">
-            <h2><span class="section-number">03</span>Tools und Sprachen</h2>
+            <div class="content-text">
+                <h2><span class="section-number">02</span>Was mich motiviert</h2>
+                <h3>UX-Design Studium</h3>
+                <p>
+                    Obwohl ich bisher überwiegend im Print-Bereich tätig war, fasziniert mich die digitale Seite der
+                    Gestaltung zunehmend. In meiner bisherigen Berufserfahrung habe ich erlebt, wie verstärkt auf
+                    digitale
+                    Technologien wie KI zurückgegriffen und die Digitalisierung von Inhalten vorangetrieben wird. In
+                    dieser
+                    immer digitalisierten Welt gewinnt die Nutzererfahrung stetig an Bedeutung, was das UX-Design zu
+                    einem
+                    spannenden und hochrelevanten Bereich macht, den ich gerne weiter erforschen möchte.
+                </p>
 
-            <!-- tools section -->
-            <section class="tools">
-                <figure>
-                    <img src="assets/images/Tools.png" alt="Zeichenwerkzeug">
-                </figure>
+                <!-- verlinkung zur dropbox in einem separaten tap -->
+                <a href="https://www.dropbox.com/scl/fo/uz9xacqm6bugp0y3f2z9k/AH8UPyB1HT43tnq_nV_XYXM?rlkey=18g1cmpauszd7vjbrkm16thub&st=esivzyy4&dl=0"
+                    target="_blank" class="button" aria-label="Studiengang auf der IU-Website ansehen">
+                    Zum Studiengang
+                </a>
+            </div>
+        </section>
 
-                <!-- liste tools -->
-                <ul>
-                    <li>Figma</li>
-                    <li>Adobe InDesign, Illustrator, Photoshop, Acrobat, After Effects</li>
-                    <li>HTML and CSS (Bassiswissen)</li>
-                    <li>Microsoft Word, Excel, PowerPoint</li>
-                </ul>
-            </section>
+        <!-- zwischenzitat 1 -->
+        <aside id="zitat1" class="quote">
+            <h2>Die digitale Seite der Gestaltung fasziniert mich</h2>
+            <div id="bildZitat1">
+                <img src="assets/images/wald.png" alt="Vogelperspektive eines nebeligen Waldes">
+            </div>
+        </aside>
 
-            <!-- sprachen section -->
-            <section class="sprachen">
-                <figure>
-                    <img src="assets/images/Sprache.png" alt="Sprechblasen">
-                </figure>
+        <!-- block 03: Tools und Sprachen -->
+        <section id="tools-sprachen" class="content-block">
+            <div class="content-text">
+                <h2><span class="section-number">03</span>Tools und Sprachen</h2>
 
-                <!-- liste sprachen -->
-                <ul>
-                    <li>Deutsch (Muttersprache)</li>
-                    <li>Englisch (Gute Kenntnisse)</li>
-                </ul>
-            </section>
+                <!-- tools section -->
+                <section class="tools">
+                    <figure>
+                        <img src="assets/images/Tools.png" alt="Symbol für Fähigkeiten: Zeichenstiftwerkzeug">
+                    </figure>
 
-        </div>
-    </section>
+                    <!-- liste tools -->
+                    <ul>
+                        <li>Figma</li>
+                        <li>Adobe InDesign, Illustrator, Photoshop, Acrobat, After Effects</li>
+                        <li>HTML and CSS (Basiswissen)</li>
+                        <li>Microsoft Word, Excel, PowerPoint</li>
+                    </ul>
+                </section>
 
-    <footer>
-        <button id="backToTop">↑</button>
+                <!-- sprachen section -->
+                <section class="sprachen">
+                    <figure>
+                        <img src="assets/images/Sprache.png" alt="Symbol für Sprachkenntnisse: Zwei Sprechblasen">
+                    </figure>
+
+                    <!-- liste sprachen -->
+                    <ul>
+                        <li>Deutsch (Muttersprache)</li>
+                        <li>Englisch (Gute Kenntnisse)</li>
+                    </ul>
+                </section>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer role="contentinfo">
+        <button id="backToTop" aria-label="Nach oben scrollen">
+            <span aria-hidden="true">↑</span>
+        </button>
         <p>
             &copy; 2025 Carina Schlachter
         </p>
         <p>
             88131 Lindau | Rangers 65 |
-            <a href="mailto:carina.schlachter@iu-study.org">carina.schlachter@iu-study.org</a> |
+            <a href="mailto:carina.schlachter@iu-study.org"
+                aria-label="E-Mail an Carina Schlachter senden">carina.schlachter@iu-study.org</a> |
             <a href="tel:+4915205891524">+49 152 05891524</a>
         </p>
     </footer>

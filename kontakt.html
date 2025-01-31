@@ -11,13 +11,14 @@
 
 <body>
 
-    <header>
+    <header role="banner">
+        <h1 class="h1-hidden">Kontakt</h1> <!-- aus SEO- und Screenreader-Gründen eingefügt -->
         <!-- navigation - burger menü animiert | w3 schools -->
-        <nav id="navigation">
+        <nav id="navigation" role="navigation" aria-label="Hauptnavigation">
             <!-- unsichtbare checkbox -->
-            <input type="checkbox" id="menu-toggle" />
+            <input type="checkbox" id="menu-toggle" aria-label="Menü anzeigen" aria-expanded="false" />
             <!-- burger symbol -->
-            <label for="menu-toggle" class="burger-icon">
+            <label for="menu-toggle" class="burger-icon" aria-label="Menü öffnen" aria-hidden="true">
                 <div class="bar1"></div>
                 <div class="bar2"></div>
                 <div class="bar3"></div>
@@ -25,56 +26,64 @@
 
             <!-- liste der menüpunkte - seiten sind noch nicht erstellt und verlinkt -->
             <div id="meny">
-                <ul class="menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="projekte.html">Projekte</a></li>
-                    <li><a href="kompetenzen.html">Kompetenzen</a></li>
-                    <li><a href="kontakt.html">Kontakt</a></li>
+                <ul class="menu" role="menu">
+                    <li><a href="index.html" role="menuitem">Home</a></li>
+                    <li><a href="projekte.html" role="menuitem">Projekte</a></li>
+                    <li><a href="kompetenzen.html" role="menuitem">Kompetenzen</a></li>
+                    <li><a href="kontakt.html" role="menuitem">Kontakt</a></li>
                 </ul>
             </div>
         </nav>
     </header>
 
-    <!-- hero image -->
-    <div class="hero-image">
-        <!-- nur ein Bild anstelle des sliders -->
-        <figure>
-            <img src="assets/images/Slider_Kontakt.png" alt="Bild mit Schriftzug Kontakt">
-        </figure>
-    </div>
+    <main role="main">
 
-    <section id="contact" class="content-block">
-        <div class="content-text">
-            <!-- titel und untertitel -->
-            <h2>Wurde Ihr Interesse geweckt?</h2>
-            <h3>Kontaktieren Sie mich gerne.</h3>
-
-            <!-- kontaktmöglichkeiten -->
-            <div class="contact-method">
-                <div class="contact-item">
-                    <img src="assets/images/Telefon.png" alt="Telefonsymbol">
-                    <p>Telefon</p>
-                    <a href="tel:+4915205891524">+49 152 05891524</a>
-                </div>
-
-                <div class="contact-item">
-                    <img src="assets/images/Mail.png" alt="Mailsymbol">
-                    <p>E-Mail</p>
-                    <a href="mailto:carina.schlachter@iu-study.org">carina.schlachter@iu-study.org</a>
-                </div>
-            </div>
-
+        <!-- hero image -->
+        <div class="hero-image">
+            <!-- nur ein Bild anstelle des sliders -->
+            <figure>
+                <img src="assets/images/Slider_Kontakt.png"
+                    alt="Bild mit einer Person am Handy und dem Schriftzug Kontakt">
+            </figure>
         </div>
-    </section>
 
-    <footer>
-        <button id="backToTop">↑</button>
+        <section id="contact" class="content-block">
+            <div class="content-text">
+                <!-- titel und untertitel -->
+                <h2>Wurde Ihr Interesse geweckt?</h2>
+                <h3>Kontaktieren Sie mich gerne.</h3>
+
+                <!-- kontaktmöglichkeiten -->
+                <div class="contact-method">
+                    <div class="contact-item">
+                        <img src="assets/images/Telefon.png" alt="Symbol eines Telefonhörers, der für den Kontakt per Telefon steht">
+                        <p>Telefon</p>
+                        <a href="tel:+4915205891524">+49 152 05891524</a>
+                    </div>
+
+                    <div class="contact-item">
+                        <img src="assets/images/Mail.png" alt="Symbol eines Briefumschlages, der für den Kontakt per E-Mail steht">
+                        <p>E-Mail</p>
+                        <a href="mailto:carina.schlachter@iu-study.org">carina.schlachter@iu-study.org</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer role="contentinfo">
+        <button id="backToTop" aria-label="Nach oben scrollen">
+            <span aria-hidden="true">↑</span>
+        </button>
         <p>
             &copy; 2025 Carina Schlachter
         </p>
         <p>
             88131 Lindau | Rangers 65 |
-            <a href="mailto:carina.schlachter@iu-study.org">carina.schlachter@iu-study.org</a> |
+            <a href="mailto:carina.schlachter@iu-study.org"
+                aria-label="E-Mail an Carina Schlachter senden">carina.schlachter@iu-study.org</a> |
             <a href="tel:+4915205891524">+49 152 05891524</a>
         </p>
     </footer>
