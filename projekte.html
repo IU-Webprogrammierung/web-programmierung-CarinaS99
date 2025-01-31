@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mein Portfolio</title>
+    <meta name="author" content="Martrikelnummer 4239178" />
+    <link href="assets/css/style.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <header>
+        <!-- unsichtbare checkbox -->
+        <input type="checkbox" id="menu-toggle" />
+
+        <!-- navigation - burger menü animiert | w3 schools -->
+        <nav id="navigation">
+            <!-- burger symbol -->
+            <label for="menu-toggle" class="burger-icon">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </label>
+
+            <!-- liste der menüpunkte - seiten sind noch nicht erstellt und verlinkt -->
+            <div id="meny">
+                <ul class="menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="projekte.html">Projekte</a></li>
+                    <li><a href="kompetenzen.html">Kompetenzen</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- slideshow/carousel | ebene 11 -->
+    <!-- sichtfenster -->
+    <div class="cssSlider">
+
+        <!-- die inputs um den slider zu steuern -->
+        <input type="radio" name="slider" id="slide01" checked="checked">
+        <input type="radio" name="slider" id="slide02">
+
+        <!-- die einzelnen slides, als liste angelegt -->
+        <ul class="sliderElements">
+            <li>
+                <figure>
+                    <img src="assets/images/Slider_Webdesign.png" alt="Webdesign">
+                </figure>
+            </li>
+            <li>
+                <figure>
+                    <img src="assets/images/Slider_Mobil.png" alt="Mobile Design">
+                </figure>
+            </li>
+        </ul>
+
+        <!-- steuerung der slides -->
+        <ul class="sliderControls">
+            <li><label for="slide01"></label></li>
+            <li><label for="slide02"></label></li>
+        </ul>
+    </div>
+
+
+    <footer>
+        <button id="backToTop">↑</button>
+        <p>
+            &copy; 2025 Carina Schlachter
+        </p>
+        <p>
+            88131 Lindau | Rangers 65 |
+            <a href="mailto:carina.schlachter@iu-study.org">carina.schlachter@iu-study.org</a> |
+            <a href="tel:+4915205891524">+49 152 05891524</a>
+        </p>
+    </footer>
+
+</body>
+
+</html>
