@@ -1,4 +1,28 @@
-/* reset und basics */
+/*== GLIEDERUNG ==*/
+
+/*
+	01) reset und basics
+	
+	02) fonts
+	
+	03) grid
+	
+	04) header + footer
+
+    05) slider
+
+    06) content
+		- 6.1) home
+		- 6.2) unterseiten
+		- 6.3) allgemeines
+	
+	07) button
+	
+	08) responsive
+*/
+
+
+/* 01) reset und basics */
 *,
 *::before,
 *::after {
@@ -29,8 +53,9 @@ ul {
 a {
     text-decoration: none;
     /* unterstreichung bei links entfernen */
+    color:white;
+    font-family: 'Sansation';
 }
-
 
 html {
     overflow-y: scroll;
@@ -45,22 +70,14 @@ html {
     -webkit-box-sizing: border-box;
     /* standardverhalten für box-sizing */
     box-sizing: border-box;
+    background-color: #20252C;
+    font-size: 16px;
+    /* standardgröße, 1rem = 16px */
 }
 
-/* versteckte h1 */
-.h1-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-}
 
-/* fonts */
+/* 02 fonts */
+/* Sansation regular */
 @font-face {
     font-family: 'Sansation';
     src: url('../fonts/Sansation_Regular.ttf') format('truetype');
@@ -68,7 +85,105 @@ html {
     font-style: normal;
 }
 
-/* navigation */
+/* Sansation bold */
+@font-face {
+    font-family: 'Sansation';
+    src: url('../fonts/Sansation_Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* Sansation italic */
+@font-face {
+    font-family: 'Sansation';
+    src: url('../fonts/Sansation_Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+/* Sansation bold italic */
+@font-face {
+    font-family: 'Sansation';
+    src: url('../fonts/Sansation_Bold_Italic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+/* Roboto */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+header, body, footer {
+color: white;
+}
+
+h1 {
+    position: absolute;
+    /* absolute positionierung, damit es über dem slider liegt */
+    font-family: 'Sansation', sans-serif;
+    font-weight: bold;
+    font-size: 7rem;
+    z-index: 1200;
+    /* höher als der slider*/
+    text-shadow: 2px 2px 5px rgba(65, 65, 65, 0.7);
+    /* schatten */
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 3rem;
+    font-family: 'Sansation', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+h3 {
+    font-size: 2rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+}
+
+h4 {
+    font-size: 1.5rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+}
+
+p {
+    font-size: 1.125rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+}
+
+#portfolio {
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* korrektur für exakte zentrierung */
+}
+
+#projekte {
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#kompetenzen {
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+}
+
+#kontakt {
+    top: 40%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+}
+
+
+/* 03 grid */
+
+
+/* 04 header + footer */
 /* navigation style */
 #navigation {
     position: absolute;
@@ -94,6 +209,8 @@ html {
     position: absolute;
     top: 20px;
     left: 50px;
+    text-shadow: 2px 2px 5px rgba(48, 48, 48, 0.7);
+    /* schatten */
     z-index: 1110;
     /* höher als z-index des menüs gesetzt, sodass das menü nicht das icon verdeckt */
 }
@@ -138,7 +255,7 @@ html {
     /* startposition außerhalb des bildschirms */
     height: 100vh;
     width: 250px;
-    background-color: #888888;
+    background-color: #2E2E38;
     transition: left 0.4s ease-in-out;
     z-index: 999;
     /* geringer als das burger-symbol */
@@ -170,7 +287,7 @@ html {
 
 #meny li a {
     text-decoration: none;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     font-size: 18px;
     text-transform: uppercase;
     /* versalien */
@@ -179,7 +296,7 @@ html {
 
 /* farbe beim hover */
 #meny li a:hover {
-    color: #3b6566;
+    color: #85CDAC;
 }
 
 /* menü einklappen, wenn das burger-symbol erneut geklickt wird */
@@ -188,7 +305,7 @@ html {
 }
 
 
-/* slideshow/carousel */
+/* 05 slider */
 /* sichtfenster für den slider */
 .cssSlider {
     position: relative;
@@ -265,7 +382,7 @@ input[type="radio"]#slide03:checked~.sliderElements {
 
 .sliderControls label {
     cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgb(255, 255, 255);
     border-radius: 50%;
     /* rund machen */
     transition: background-color 0.3s ease;
@@ -276,7 +393,7 @@ input[type="radio"]#slide03:checked~.sliderElements {
 }
 
 .sliderControls label:hover {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.555);
     transform: scale(1.2);
     /* leichtes vergrößern bei hover */
 }
@@ -286,11 +403,13 @@ input[type="radio"]#slide03:checked~.sliderElements {
     position: relative;
     width: 100%;
     height: 100vh;
-    z-index: 999; /* sicherstellen, dass das bild unter dem burger-menü liegt */
+    z-index: 999;
+    /* sicherstellen, dass das bild unter dem burger-menü liegt */
 }
 
 .hero-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* bild wird so skaliert, dass es den container vollständig ausfüllt und die proportionen beibehält */
+    object-fit: cover;
+    /* bild wird so skaliert, dass es den container vollständig ausfüllt und die proportionen beibehält */
 }

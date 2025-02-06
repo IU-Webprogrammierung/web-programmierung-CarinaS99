@@ -12,13 +12,13 @@
 <body>
 
     <header role="banner">
-        <h1 class="h1-hidden">Meine Projekte</h1> <!-- aus SEO- und Screenreader-Gründen eingefügt -->
+        <h1 id="projekte">Projekte</h1>
         <!-- navigation - burger menü animiert | w3 schools -->
         <nav id="navigation" role="navigation" aria-label="Hauptnavigation">
             <!-- unsichtbare checkbox -->
             <input type="checkbox" id="menu-toggle" aria-label="Menü anzeigen" aria-expanded="false" />
             <!-- burger symbol -->
-            <label for="menu-toggle" class="burger-icon" aria-label="Menü öffnen" aria-hidden="true">
+            <label for="menu-toggle" class="burger-icon" aria-label="Menü öffnen" aria-controls="meny" tabindex="0">
                 <div class="bar1"></div>
                 <div class="bar2"></div>
                 <div class="bar3"></div>
@@ -26,11 +26,11 @@
 
             <!-- liste der menüpunkte - seiten sind noch nicht erstellt und verlinkt -->
             <div id="meny">
-                <ul class="menu" role="menu">
-                    <li><a href="index.html" role="menuitem">Home</a></li>
-                    <li><a href="projekte.html" role="menuitem">Projekte</a></li>
-                    <li><a href="kompetenzen.html" role="menuitem">Kompetenzen</a></li>
-                    <li><a href="kontakt.html" role="menuitem">Kontakt</a></li>
+                <ul class="menu" role="menubar">
+                    <li role="none"><a href="index.html" role="menuitem">Home</a></li>
+                    <li role="none"><a href="projekte.html" role="menuitem">Projekte</a></li>
+                    <li role="none"><a href="kompetenzen.html" role="menuitem">Kompetenzen</a></li>
+                    <li role="none"><a href="kontakt.html" role="menuitem">Kontakt</a></li>
                 </ul>
             </div>
         </nav>
@@ -40,14 +40,14 @@
 
         <!-- slideshow/carousel | ebene 11 -->
         <!-- sichtfenster -->
-        <div class="cssSlider">
+        <div class="cssSlider" role="region" aria-labelledby="sliderTitle">
 
             <!-- die inputs um den slider zu steuern -->
             <input type="radio" name="slider" id="slide01" checked="checked">
             <input type="radio" name="slider" id="slide02">
 
             <!-- die einzelnen slides, als liste angelegt -->
-            <ul class="sliderElements">
+            <ul class="sliderElements" role="list">
                 <li>
                     <figure>
                         <img src="assets/images/Slider_Webdesign.png"
@@ -56,14 +56,14 @@
                 </li>
                 <li>
                     <figure>
-                        <img src="assets/images/Slider_Mobil.png"
+                        <img src="assets/images/Slider_MobileDesign.png"
                             alt="Mobile Design Schriftzug mit Mock-ups von Handys rechts daneben">
                     </figure>
                 </li>
             </ul>
 
             <!-- steuerung der slides -->
-            <ul class="sliderControls">
+            <ul class="sliderControls" role="list">
                 <li><label for="slide01"></label></li>
                 <li><label for="slide02"></label></li>
             </ul>
@@ -73,7 +73,9 @@
         <section id="stadtrallye" class="content-block">
 
             <div class="content-text">
-                <h2><span class="section-number">01</span>Stadtrallye - Webdesign</h2>
+                <h2><span class="section-number"><img src="assets/images/01.svg"
+                            alt="Die Nummer 01 als Symbol für den ersten Bereich">
+                    </span>Stadtrallye - Webdesign</h2>
                 <p>
                     Im Rahmen dieses Projekts habe ich eine interaktive Stadtrallye konzipiert und gestaltet. Der
                     Prozess
@@ -111,7 +113,9 @@
         <section id="urbanGardening" class="content-block">
 
             <div class="content-text">
-                <h2><span class="section-number">02</span>Urban Gardening - Mobile Design</h2>
+                <h2><span class="section-number"><img src="assets/images/02.svg"
+                            alt="Die Nummer 02 als Symbol für den zweiten Bereich">
+                    </span>Urban Gardening - Mobile Design</h2>
                 <p>
                     Dieses Projekt umfasst die Konzeption und Gestaltung einer Mobile-App für Urban Gardening. Ziel war
                     es,

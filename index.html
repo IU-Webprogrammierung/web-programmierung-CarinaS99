@@ -12,13 +12,13 @@
 <body>
 
     <header role="banner">
-        <h1 class="h1-hidden">Mein Portfolio</h1> <!-- aus SEO- und Screenreader-Gründen eingefügt -->
+        <h1 id="portfolio">Portfolio</h1>
         <!-- navigation - burger menü animiert | w3 schools -->
         <nav id="navigation" role="navigation" aria-label="Hauptnavigation">
             <!-- unsichtbare checkbox -->
             <input type="checkbox" id="menu-toggle" aria-label="Menü anzeigen" aria-expanded="false" />
             <!-- burger symbol -->
-            <label for="menu-toggle" class="burger-icon" aria-label="Menü öffnen" aria-hidden="true">
+            <label for="menu-toggle" class="burger-icon" aria-label="Menü öffnen" aria-controls="meny" tabindex="0">
                 <div class="bar1"></div>
                 <div class="bar2"></div>
                 <div class="bar3"></div>
@@ -26,11 +26,11 @@
 
             <!-- liste der menüpunkte - seiten sind noch nicht erstellt und verlinkt -->
             <div id="meny">
-                <ul class="menu" role="menu">
-                    <li><a href="index.html" role="menuitem">Home</a></li>
-                    <li><a href="projekte.html" role="menuitem">Projekte</a></li>
-                    <li><a href="kompetenzen.html" role="menuitem">Kompetenzen</a></li>
-                    <li><a href="kontakt.html" role="menuitem">Kontakt</a></li>
+                <ul class="menu" role="menubar">
+                    <li role="none"><a href="index.html" role="menuitem">Home</a></li>
+                    <li role="none"><a href="projekte.html" role="menuitem">Projekte</a></li>
+                    <li role="none"><a href="kompetenzen.html" role="menuitem">Kompetenzen</a></li>
+                    <li role="none"><a href="kontakt.html" role="menuitem">Kontakt</a></li>
                 </ul>
             </div>
         </nav>
@@ -40,7 +40,7 @@
 
         <!-- slideshow/carousel | ebene 11 -->
         <!-- sichtfenster -->
-        <div class="cssSlider">
+        <div class="cssSlider" role="region" aria-labelledby="sliderTitle">
 
             <!-- die inputs um den slider zu steuern -->
             <input type="radio" name="slider" id="slide01" checked="checked">
@@ -48,7 +48,7 @@
             <input type="radio" name="slider" id="slide03">
 
             <!-- die einzelnen slides, als liste angelegt -->
-            <ul class="sliderElements">
+            <ul class="sliderElements" role="list">
                 <li>
                     <figure>
                         <img src="assets/images/Slider_Portfolio.png"
@@ -63,14 +63,14 @@
                 </li>
                 <li>
                     <figure>
-                        <img src="assets/images/Slider_Mobil.png"
+                        <img src="assets/images/Slider_MobileDesign.png"
                             alt="Mobile Design Schriftzug mit Mock-ups von Handys rechts daneben">
                     </figure>
                 </li>
             </ul>
 
             <!-- steuerung der slides -->
-            <ul class="sliderControls">
+            <ul class="sliderControls" role="list">
                 <li><label for="slide01"></label></li>
                 <li><label for="slide02"></label></li>
                 <li><label for="slide03"></label></li>
@@ -81,7 +81,9 @@
         <section id="zuMeinerPerson" class="content-block" aria-labelledby="personTitle">
 
             <div class="content-text">
-                <h2 id="personTitle"><span class="section-number">01</span>Zu meiner Person</h2>
+                <h2 id="personTitle"><span class="section-number"><img src="assets/images/01.svg"
+                            alt="Die Nummer 01 als Symbol für den ersten Bereich">
+                    </span>Zu meiner Person</h2>
                 <h3>Carina Schlachter</h3>
                 <p>
                     Ich bin wissbegierig, zielstrebig, strukturiert, sehr lernfähig und scheue keine Arbeit. Teamwork
@@ -98,91 +100,44 @@
             </div>
 
             <div id="profilbild">
-                <img src="assets/images/Profilbild.png" alt="Bild von einer lächelnden Frau mit langen Haaren">
+                <img src="assets/images/Profilbild.png" alt="Lächelnde Frau mit langen Haaren">
             </div>
 
         </section>
 
         <!-- block 2: Mein Werdegang -->
         <section id="MeinWerdegang" class="content-block" aria-labelledby="careerTitle">
-            <div class="content-text">
-                <h2 id="careerTitle"><span class="section-number">02</span>Mein Werdegang</h2>
-                <h3>Bildung</h3>
+            <h2 id="careerTitle"><span class="section-number">
+                    <img src="assets/images/02.svg" alt="Die Nummer 02 als Symbol für den zweiten Bereich">
+                </span> Mein Werdegang</h2>
+            <h3>Bildung</h3>
 
-                <article id="bildung-grundschule">
-                    <h3>2007-2011</h3>
-                    <h4>Grundschule</h4>
-                    <p>
-                        Grundschule Oberreitnau Lindau
-                    </p>
-                </article>
-
-                <article id="bildung-realschule">
-                    <h3>2011-2016</h3>
-                    <h4>Realschule</h4>
-                    <p>
-                        Maria-Ward-Realschule Lindau
-                    </p>
-                </article>
-
-                <article id="bildung-abitur">
-                    <h3>2016-2019</h3>
-                    <h4>Allgemeine Hochschulreife</h4>
-                    <p>
-                        Claude-Dornier-Schule Friedrichshafen
-                    </p>
-                </article>
-
-                <article id="bildung-ausbildung">
-                    <h3>2019-2022</h3>
-                    <h4>Ausbildung zur Mediengestalterin</h4>
-                    <p>
-                        Tanner AG
-                    </p>
-                </article>
-
-                <article id="bildung-mediengestalterin">
-                    <h3>Seit 02/2022</h3>
-                    <h4>Vollzeit Mediengestalterin im Technischen Marketing</h4>
-                    <p>
-                        Tanner AG
-                    </p>
-                </article>
-
-                <article id="bildung-studium">
-                    <h3>Seit 09/2023</h3>
-                    <h4>Änderung zu Teilzeit, Beginn UX-Design Studium</h4>
-                    <p>
-                        IU Internationale Hochschule
-                    </p>
-                </article>
-
-                <h3>Praktika</h3>
-
-                <article id="praktika-kindergarten">
-                    <h3>2015</h3>
-                    <h4>Kindertagesstätte zur heiligen Familie</h4>
-                    <p>
-                        Compassion-Projekt
-                    </p>
-                </article>
-
-                <article id="praktika-volksbank">
-                    <h3>2016</h3>
-                    <h4>Volksbank Allgäu-West-eG</h4>
-                    <p>
-                        Im Bereich Privatkunden, Bank und Serviceschalter
-                    </p>
-                </article>
-
-                <article id="praktika-tanner">
-                    <h3>2017</h3>
-                    <h4>Tanner AG</h4>
-                    <p>
-                        Im Bereich des Technischen Marketings und der Technischen Dokumentation
-                    </p>
-                </article>
-            </div>
+            <ul role="list">
+                <li role="listitem">
+                    <h4>2007-2011</h4>
+                    <p>Grundschule Oberreitnau Lindau</p>
+                </li>
+                <li role="listitem">
+                    <h4>2011-2016</h4>
+                    <p>Maria-Ward-Realschule Lindau</p>
+                </li>
+                <li role="listitem">
+                    <h4>2016-2019</h4>
+                    <p>Claude-Dornier-Schule Friedrichshafen</p>
+                </li>
+                <li role="listitem">
+                    <h4>2019-2022</h4>
+                    <p>Ausbildung zur Mediengestalterin - Tanner AG</p>
+                </li>
+                <li role="listitem">
+                    <h4>Seit 02/2022</h4>
+                    <p>Mediengestalterin im Technischen Marketing - Tanner AG</p>
+                </li>
+                <li role="listitem">
+                    <h4>Seit 09/2023</h4>
+                    <p>Teilzeit Mediengestalterin und UX-Design Studium - IU Hochschule</p>
+                </li>
+            </ul>
         </section>
 
         <!-- zwischenzitat 1 -->
@@ -196,14 +151,16 @@
         <!-- block 3: Meine Projekte -->
         <section id="MeineProjekte" class="content-block" aria-labelledby="projectsTitle">
             <div class="content-text">
-                <h2 id="projectsTitle"><span class="section-number">03</span>Meine Projekte</h2>
+                <h2 id="projectsTitle"><span class="section-number">
+                        <img src="assets/images/03.svg" alt="Die Nummer 03 als Symbol für den dritten Bereich">
+                    </span>Meine Projekte</h2>
 
                 <!-- projekt 1 -->
                 <div class="project-gallery">
                     <div class="project-item">
                         <!-- hier a verwendet, da es besser für den Screenreader ist -->
                         <a href="projekt1.html" class="project-button">
-                            <img src="assets/images/Slider_Webdesign.png"
+                            <img src="assets/images/Webdesign.png"
                                 alt="Webdesign Schriftzug mit Mock-ups von zwei Laptops und einem Handy darunter">
                             <span>Zum Projekt</span>
                         </a>
@@ -213,7 +170,7 @@
                     <div class="project-item">
                         <!-- hier a verwendet, da es besser für den Screenreader ist -->
                         <a href="projekt2.html" class="project-button">
-                            <img src="assets/images/Slider_Mobil.png" alt="Mobile Design Schriftzug ...">
+                            <img src="assets/images/MobileDesign.png" alt="Mobile Design Schriftzug ...">
                             <span>Zum Projekt</span>
                         </a>
                     </div>
