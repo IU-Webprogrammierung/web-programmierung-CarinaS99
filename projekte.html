@@ -11,7 +11,7 @@
 
 <body>
 
-    <header role="banner">
+    <header>
         <h1 id="projekte">Projekte</h1>
         <!-- navigation - burger menü animiert | w3 schools -->
         <nav id="navigation" role="navigation" aria-label="Hauptnavigation">
@@ -19,6 +19,7 @@
             <input type="checkbox" id="menu-toggle" aria-label="Menü anzeigen" aria-expanded="false" />
             <!-- burger symbol -->
             <label for="menu-toggle" class="burger-icon" aria-label="Menü öffnen" aria-controls="meny" tabindex="0">
+                <span class="visually-hidden">Menü öffnen</span>
                 <div class="bar1"></div>
                 <div class="bar2"></div>
                 <div class="bar3"></div>
@@ -40,33 +41,35 @@
 
         <!-- slideshow/carousel | ebene 11 -->
         <!-- sichtfenster -->
-        <div class="cssSlider" role="region" aria-labelledby="sliderTitle">
+        <div class="cssSlider" role="region">
+            <!-- slider-steuerung -->
+            <input type="radio" name="slider" id="slide01" checked>
+            <label class="visually-hidden" for="slide01">Erstes Bild</label>
 
-            <!-- die inputs um den slider zu steuern -->
-            <input type="radio" name="slider" id="slide01" checked="checked">
             <input type="radio" name="slider" id="slide02">
+            <label class="visually-hidden" for="slide02">Zweites Bild</label>
 
-            <!-- die einzelnen slides, als liste angelegt -->
+            <!-- Slides -->
             <ul class="sliderElements" role="list">
                 <li>
                     <figure>
                         <img src="assets/images/Slider_Webdesign.png"
-                            alt="Webdesign Schriftzug mit Mock-ups von zwei Laptops und einem Handy darunter">
+                            alt="Mock-ups von zwei Laptops und einem Handy auf einem lila Verlauf">
                     </figure>
                 </li>
                 <li>
                     <figure>
                         <img src="assets/images/Slider_MobileDesign.png"
-                            alt="Mobile Design Schriftzug mit Mock-ups von Handys rechts daneben">
+                            alt="Mock-ups von Handys auf einem grünen Verlauf">
                     </figure>
                 </li>
             </ul>
 
             <!-- steuerung der slides -->
-            <ul class="sliderControls" role="list">
-                <li><label for="slide01"></label></li>
-                <li><label for="slide02"></label></li>
-            </ul>
+            <div class="sliderControls">
+                <label for="slide01"><span class="visually-hidden">Erstes Bild</span></label>
+                <label for="slide02"><span class="visually-hidden">Zweites Bild</span></label>
+            </div>
         </div>
 
         <!-- block 01: Stadtrallye -->
@@ -81,15 +84,19 @@
                     Prozess
                     umfasste die Entwicklung eines Grundkonzepts, eine umfassende Wettbewerbsanalyse sowie die
                     Definition
-                    der Zielgruppe anhand von Personas. Durch Moodboards und Wireframes entstand eine nutzerzentrierte
+                    der Zielgruppe anhand von Personas. Durch Moodboards und Wireframes entstand eine
+                    nutzerzentrierte
                     Informationsarchitektur, die den Buchungsprozess und die Navigation optimiert.
                 </p>
                 <p>
-                    Besonderer Fokus lag auf der Gestaltung einer intuitiven User Experience, der konsistenten Umsetzung
+                    Besonderer Fokus lag auf der Gestaltung einer intuitiven User Experience, der konsistenten
+                    Umsetzung
                     des
-                    Styleguides sowie der responsiven Anpassung für verschiedene Endgeräte. Iterative Anpassungen und
+                    Styleguides sowie der responsiven Anpassung für verschiedene Endgeräte. Iterative Anpassungen
+                    und
                     Tests
-                    sorgten für ein durchdachtes, ansprechendes Screendesign. Das Projekt bot mir wertvolle Einblicke in
+                    sorgten für ein durchdachtes, ansprechendes Screendesign. Das Projekt bot mir wertvolle
+                    Einblicke in
                     UX-Strategien, Interaktionsdesign und die Arbeit mit Figma.
                 </p>
 
@@ -117,20 +124,23 @@
                             alt="Die Nummer 02 als Symbol für den zweiten Bereich">
                     </span>Urban Gardening - Mobile Design</h2>
                 <p>
-                    Dieses Projekt umfasst die Konzeption und Gestaltung einer Mobile-App für Urban Gardening. Ziel war
+                    Dieses Projekt umfasst die Konzeption und Gestaltung einer Mobile-App für Urban Gardening. Ziel
+                    war
                     es,
                     Nutzern eine einfache Pflanzenberatung, Community-Interaktion und einen Shopfinder zu bieten.
                 </p>
                 <p>
 
-                    Nach einer Wettbewerbsanalyse und Nutzerrecherche wurden Personas und Storyboards erstellt, um eine
+                    Nach einer Wettbewerbsanalyse und Nutzerrecherche wurden Personas und Storyboards erstellt, um
+                    eine
                     benutzerfreundliche Lösung zu entwickeln. Die Gestaltung orientiert sich an bewährten
                     Designprinzipien,
                     mit einer klaren Informationsarchitektur, einem freundlichen Schriftbild und einer natürlichen
                     Farbpalette.
                 </p>
                 <p>
-                    Besonderes Augenmerk lag auf einer intuitiven Navigation und der optimierten Nutzerführung, um die
+                    Besonderes Augenmerk lag auf einer intuitiven Navigation und der optimierten Nutzerführung, um
+                    die
                     wichtigsten Funktionen schnell zugänglich zu machen.
                 </p>
 

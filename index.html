@@ -11,7 +11,7 @@
 
 <body>
 
-    <header role="banner">
+    <header>
         <h1 id="portfolio">Portfolio</h1>
         <!-- navigation - burger menü animiert | w3 schools -->
         <nav id="navigation" role="navigation" aria-label="Hauptnavigation">
@@ -19,6 +19,7 @@
             <input type="checkbox" id="menu-toggle" aria-label="Menü anzeigen" aria-expanded="false" />
             <!-- burger symbol -->
             <label for="menu-toggle" class="burger-icon" aria-label="Menü öffnen" aria-controls="meny" tabindex="0">
+                <span class="visually-hidden">Menü öffnen</span>
                 <div class="bar1"></div>
                 <div class="bar2"></div>
                 <div class="bar3"></div>
@@ -40,41 +41,44 @@
 
         <!-- slideshow/carousel | ebene 11 -->
         <!-- sichtfenster -->
-        <div class="cssSlider" role="region" aria-labelledby="sliderTitle">
+        <div class="cssSlider" role="region">
+            <!-- slider-steuerung: kein fieldset, da es sich um einen slider und nicht um ein formular handelt -->
+                <input type="radio" name="slider" id="slide01" checked>
+                <label class="visually-hidden" for="slide01">Erstes Bild</label>
 
-            <!-- die inputs um den slider zu steuern -->
-            <input type="radio" name="slider" id="slide01" checked="checked">
-            <input type="radio" name="slider" id="slide02">
-            <input type="radio" name="slider" id="slide03">
+                <input type="radio" name="slider" id="slide02">
+                <label class="visually-hidden" for="slide02">Zweites Bild</label>
 
-            <!-- die einzelnen slides, als liste angelegt -->
+                <input type="radio" name="slider" id="slide03">
+                <label class="visually-hidden" for="slide03">Drittes Bild</label>
+
+            <!-- Slides -->
             <ul class="sliderElements" role="list">
                 <li>
                     <figure>
-                        <img src="assets/images/Slider_Portfolio.png"
-                            alt="Portfolioschriftzug vor dem Säntis-Berg, der als Hintergrund dient">
+                        <img src="assets/images/Slider_Portfolio.png" alt="Säntis-Berg mit See im Vordergrund">
                     </figure>
                 </li>
                 <li>
                     <figure>
                         <img src="assets/images/Slider_Webdesign.png"
-                            alt="Webdesign Schriftzug mit Mock-ups von zwei Laptops und einem Handy darunter">
+                            alt="Mock-ups von zwei Laptops und einem Handy auf einem lila Verlauf">
                     </figure>
                 </li>
                 <li>
                     <figure>
                         <img src="assets/images/Slider_MobileDesign.png"
-                            alt="Mobile Design Schriftzug mit Mock-ups von Handys rechts daneben">
+                            alt="Mock-ups von Handys auf einem grünen Verlauf">
                     </figure>
                 </li>
             </ul>
 
             <!-- steuerung der slides -->
-            <ul class="sliderControls" role="list">
-                <li><label for="slide01"></label></li>
-                <li><label for="slide02"></label></li>
-                <li><label for="slide03"></label></li>
-            </ul>
+            <div class="sliderControls">
+                <label for="slide01"><span class="visually-hidden">Erstes Bild</span></label>
+                <label for="slide02"><span class="visually-hidden">Zweites Bild</span></label>
+                <label for="slide03"><span class="visually-hidden">Drittes Bild</span></label>
+            </div>
         </div>
 
         <!-- block 01: Zu meiner Person -->
@@ -86,13 +90,17 @@
                     </span>Zu meiner Person</h2>
                 <h3>Carina Schlachter</h3>
                 <p>
-                    Ich bin wissbegierig, zielstrebig, strukturiert, sehr lernfähig und scheue keine Arbeit. Teamwork
+                    Ich bin wissbegierig, zielstrebig, strukturiert, sehr lernfähig und scheue keine Arbeit.
+                    Teamwork
                     und
-                    ein gutes Arbeitsklima sind mir sehr wichtig, denn nur zusammen entwickelt man die besten Lösungen.
+                    ein gutes Arbeitsklima sind mir sehr wichtig, denn nur zusammen entwickelt man die besten
+                    Lösungen.
                 </p>
                 <p>
-                    In meiner Freizeit lese ich gerne Bücher (Deutsch und Englisch) und halte mich mit Sport fit: Yoga,
-                    Laufen oder ein pulstreibendes HIIT. Außerdem liebe ich es, am Wochenende aufwendigere Gerichte zu
+                    In meiner Freizeit lese ich gerne Bücher (Deutsch und Englisch) und halte mich mit Sport fit:
+                    Yoga,
+                    Laufen oder ein pulstreibendes HIIT. Außerdem liebe ich es, am Wochenende aufwendigere Gerichte
+                    zu
                     kochen und sie mit Freunden oder Familie zu genießen.
                 </p>
                 <a href="kompetenzen.html" class="button">Kompetenzen</a>
@@ -100,7 +108,7 @@
             </div>
 
             <div id="profilbild">
-                <img src="assets/images/Profilbild.png" alt="Lächelnde Frau mit langen Haaren">
+                <img src="assets/images/Profilbild.png" alt="Carina Schlachter, UX-Designerin, mit einem Lächeln">
             </div>
 
         </section>
@@ -161,7 +169,7 @@
                         <!-- hier a verwendet, da es besser für den Screenreader ist -->
                         <a href="projekt1.html" class="project-button">
                             <img src="assets/images/Webdesign.png"
-                                alt="Webdesign Schriftzug mit Mock-ups von zwei Laptops und einem Handy darunter">
+                                alt="Webdesign Schriftzug mit Mock-ups von zwei Laptops und einem Handy">
                             <span>Zum Projekt</span>
                         </a>
                     </div>
@@ -170,7 +178,7 @@
                     <div class="project-item">
                         <!-- hier a verwendet, da es besser für den Screenreader ist -->
                         <a href="projekt2.html" class="project-button">
-                            <img src="assets/images/MobileDesign.png" alt="Mobile Design Schriftzug ...">
+                            <img src="assets/images/MobileDesign.png" alt="Mobile Design Schriftzug mit mehren Mock-ups von Handys">
                             <span>Zum Projekt</span>
                         </a>
                     </div>
