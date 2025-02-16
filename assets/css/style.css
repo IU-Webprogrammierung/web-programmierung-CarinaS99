@@ -89,6 +89,23 @@ html {
 
 
 /* 02 fonts */
+
+/* Roboto regular */
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Roboto bold */
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
 /* Sansation regular */
 @font-face {
     font-family: 'Sansation';
@@ -120,9 +137,6 @@ html {
     font-weight: bold;
     font-style: italic;
 }
-
-/* Roboto */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
 header,
 body,
