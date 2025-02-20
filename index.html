@@ -67,9 +67,20 @@
             <div class="dots-container">
                 <!-- Jeder Dot ist ein span-Element mit der Klasse dot. 
                  Durch das onclick-Attribut wird eine JavaScript-Funktion aufgerufen, um das entsprechende Bild anzuzeigen, wenn der Benutzer auf den Punkt klickt.-->
-                <span class="dot" onclick="currentSlide(1)"></span>
-                <span class="dot" onclick="currentSlide(2)"></span>
-                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(1)"
+                    onkeydown="if(event.key === 'Enter' || event.key === ' ') { currentSlide(1); }" role="button"
+                    tabindex="0" aria-label="Gehe zur Folie 1">
+                </span> <!-- keydown für Tastaturunterstützung -->
+
+                <span class="dot" onclick="currentSlide(2)"
+                    onkeydown="if(event.key === 'Enter' || event.key === ' ') { currentSlide(2); }" role="button"
+                    tabindex="0" aria-label="Gehe zur Folie 2">
+                </span>
+
+                <span class="dot" onclick="currentSlide(3)"
+                    onkeydown="if(event.key === 'Enter' || event.key === ' ') { currentSlide(3); }" role="button"
+                    tabindex="0" aria-label="Gehe zur Folie 3">
+                </span>
             </div>
 
         </div>
