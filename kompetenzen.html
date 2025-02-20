@@ -25,7 +25,7 @@
                 <div class="bar3"></div>
             </label>
 
-            <!-- liste der menüpunkte - seiten sind noch nicht erstellt und verlinkt -->
+            <!-- liste der menüpunkte -->
             <div id="meny">
                 <ul class="menu" role="menubar">
                     <li role="none"><a href="index.html" role="menuitem">Home</a></li>
@@ -35,6 +35,58 @@
                 </ul>
             </div>
         </nav>
+
+        <!-- JavaScript für die Tastatursteuerung des Menüs -->
+        <script>
+            /* Warten, bis die gesamte Seite geladen ist */
+            document.addEventListener("DOMContentLoaded", function () {
+                /* Elemente aus dem DOM abrufen */
+                const menuToggle = document.getElementById("menu-toggle"); /* Die Checkbox für das Menü */
+                const menu = document.getElementById("meny"); /* Das eigentliche Menü */
+                const menuItems = menu.querySelectorAll("a"); /* Alle Links im Menü */
+                const burgerIcon = document.querySelector(".burger-icon"); /* Das Burger-Symbol */
+
+                /* Funktion zum Öffnen des Menüs */
+                function openMenu() {
+                    menuToggle.checked = true; /* Die Checkbox aktivieren (Menü wird sichtbar) */
+                    menuToggle.setAttribute("aria-expanded", "true"); /* Screenreader informieren, dass das Menü geöffnet ist */
+                    menuItems[0].focus(); /* Den Fokus auf das erste Menüelement setzen, damit Tastaturnutzer navigieren können */
+                }
+
+                /* Funktion zum Schließen des Menüs */
+                function closeMenu() {
+                    menuToggle.checked = false; /* Die Checkbox deaktivieren (Menü wird versteckt) */
+                    menuToggle.setAttribute("aria-expanded", "false"); /* Screenreader informieren, dass das Menü geschlossen ist */
+                    burgerIcon.focus(); /* Fokus zurück auf das Burger-Symbol setzen, damit der Nutzer weiter navigieren kann */
+                }
+
+                /* Wenn der Nutzer die "Enter"- oder die "Leertaste" drückt, wird das Menü geöffnet */
+                burgerIcon.addEventListener("keydown", function (event) {
+                    if (event.key === "Enter" || event.key === " ") {
+                        event.preventDefault(); /* Verhindert, dass die Seite scrollt, falls die Leertaste gedrückt wird */
+                        openMenu(); /* Menü öffnen */
+                    }
+                });
+
+                /* Wenn der Nutzer die "Escape"-Taste drückt, wird das Menü geschlossen */
+                document.addEventListener("keydown", function (event) {
+                    if (event.key === "Escape" && menuToggle.checked) {
+                        closeMenu(); /* Menü schließen */
+                    }
+                });
+
+                /* Falls der Fokus das Menü verlässt, wird das Menü automatisch geschlossen */
+                menuItems[menuItems.length - 1].addEventListener("blur", function () {
+                    /* Ein kleines Timeout, um sicherzustellen, dass der neue Fokus geprüft wird */
+                    setTimeout(() => {
+                        if (!menu.contains(document.activeElement)) { /* Falls kein Menüelement mehr fokussiert ist */
+                            closeMenu(); /* Menü schließen */
+                        }
+                    }, 100);
+                });
+            });
+        </script>
+
     </header>
 
     <main role="main">
@@ -43,7 +95,8 @@
         <div class="hero-image">
             <!-- nur ein Bild anstelle des sliders -->
             <figure>
-                <img src="assets/images/Slider_Kompetenzen.jpg" alt="Schreibtisch mit schreibender Hand und Schriftzug Kompetenzen" title="Kompetenzen Titelbild">
+                <img src="assets/images/Slider_Kompetenzen.jpg"
+                    alt="Schreibtisch mit schreibender Hand und Schriftzug Kompetenzen" title="Kompetenzen Titelbild">
             </figure>
         </div>
 
@@ -51,7 +104,8 @@
         <section id="kompetenz" class="content-block">
 
             <div class="content-text">
-                <h2><span class="section-number"><img src="assets/images/01.svg" alt="Die Nummer 01 als Symbol für den ersten Bereich" title="Nummer 01">
+                <h2><span class="section-number"><img src="assets/images/01.svg"
+                            alt="Die Nummer 01 als Symbol für den ersten Bereich" title="Nummer 01">
                     </span>Meine Kompetenzen</h2>
                 <p>
                     Im Februar 2022 habe ich die Ausbildung zur Mediengestalterin erfolgreich abgeschlossen und wurde
@@ -87,9 +141,11 @@
 
             <div class="content-text">
                 <div id="ablaufplan">
-                    <img src="assets/images/iu_Kompetenzen.jpg" alt="iu Logo mit einem Bild des Studienablaufplans" title="Studienablaufplan">
+                    <img src="assets/images/iu_Kompetenzen.jpg" alt="iu Logo mit einem Bild des Studienablaufplans"
+                        title="Studienablaufplan">
                 </div>
-                <h2><span class="section-number"><img src="assets/images/02.svg" alt="Die Nummer 02 als Symbol für den zweiten Bereich" title="Nummer 02">
+                <h2><span class="section-number"><img src="assets/images/02.svg"
+                            alt="Die Nummer 02 als Symbol für den zweiten Bereich" title="Nummer 02">
                     </span>Was mich motiviert</h2>
                 <h3>UX-Design Studium</h3>
                 <p>
@@ -122,13 +178,15 @@
         <!-- block 03: Tools und Sprachen -->
         <section id="tools-sprachen" class="content-block">
             <div class="content-text">
-                <h2><span class="section-number"><img src="assets/images/03.svg" alt="Die Nummer 03 als Symbol für den dritten Bereich" title="Nummer 03">
+                <h2><span class="section-number"><img src="assets/images/03.svg"
+                            alt="Die Nummer 03 als Symbol für den dritten Bereich" title="Nummer 03">
                     </span>Tools und Sprachen</h2>
 
                 <!-- tools section -->
                 <section class="tools">
                     <figure>
-                        <img src="assets/images/Tools.svg" alt="Symbol für Fähigkeiten: Zeichenstiftwerkzeug" title="Zeichenstiftwerkzeug">
+                        <img src="assets/images/Tools.svg" alt="Symbol für Fähigkeiten: Zeichenstiftwerkzeug"
+                            title="Zeichenstiftwerkzeug">
                     </figure>
 
                     <!-- liste tools -->
@@ -143,7 +201,8 @@
                 <!-- sprachen section -->
                 <section class="sprachen">
                     <figure>
-                        <img src="assets/images/Sprache.svg" alt="Symbol für Sprachkenntnisse: Zwei Sprechblasen" title="Sprechblasen">
+                        <img src="assets/images/Sprache.svg" alt="Symbol für Sprachkenntnisse: Zwei Sprechblasen"
+                            title="Sprechblasen">
                     </figure>
 
                     <!-- liste sprachen -->

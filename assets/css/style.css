@@ -26,11 +26,11 @@
 *,
 *::before,
 *::after {
-    -webkit-box-sizing: inherit;
-    /* sorgt dafür, dass alle Elemente sowie ihre ::before und ::after pseudo-elemente das box-sizing-verhalten von einem eltern-element erben */
     box-sizing: inherit;
+    /* sorgt dafür, dass alle Elemente sowie ihre ::before und ::after pseudo-elemente das box-sizing-verhalten von einem eltern-element erben. */
 }
 
+/* Standardabstände zurücksetzen */
 body,
 h1,
 h2,
@@ -59,17 +59,17 @@ a {
 
 html {
     overflow-y: scroll;
-    overflow-x: hidden;
     /* vertikale scrollbalken immer sichtbar */
+    overflow-x: hidden;
+    /* Verhindert horizontales Scrollen */
     height: 100%;
     /* volle höhe des viewports */
     -webkit-hyphens: auto;
     /* automatische silbentrennung */
     -ms-hyphens: auto;
     hyphens: auto;
-    -webkit-box-sizing: border-box;
-    /* standardverhalten für box-sizing */
     box-sizing: border-box;
+    /* Alle Elemente haben border-box, d. h. padding und border werden in die Breite einberechnet */
     background-color: #20252C;
     font-size: 16px;
     /* standardgröße, 1rem = 16px */
@@ -77,13 +77,17 @@ html {
 
 .visually-hidden {
     position: absolute;
+    /* Positioniert das Element aus dem normalen Layout. */
     width: 1px;
     height: 1px;
+    /* Das Element wird winzig klein. */
     padding: 0;
     margin: -1px;
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
+    /* Vollständige Ausblendung. */
     white-space: nowrap;
+    /* Verhindert Zeilenumbrüche */
     border: 0;
 }
 
@@ -91,9 +95,12 @@ html {
 /* 02 fonts */
 
 /* Roboto regular */
+/* font-face Ermöglicht das Einbinden einer Schriftart, die sich im Projektordner befindet. */
 @font-face {
     font-family: 'Roboto';
+    /* Gibt der Schrift einen Namen, der später im CSS verwendet wird. */
     src: url('../fonts/Roboto-Regular.ttf') format('truetype');
+    /* Gibt an, wo sich die Schriftart-Datei befindet */
     font-weight: normal;
     font-style: normal;
 }
@@ -122,22 +129,6 @@ html {
     font-style: normal;
 }
 
-/* Sansation italic */
-@font-face {
-    font-family: 'Sansation';
-    src: url('../fonts/Sansation_Italic.ttf') format('truetype');
-    font-weight: normal;
-    font-style: italic;
-}
-
-/* Sansation bold italic */
-@font-face {
-    font-family: 'Sansation';
-    src: url('../fonts/Sansation_Bold_Italic.ttf') format('truetype');
-    font-weight: bold;
-    font-style: italic;
-}
-
 header,
 body,
 footer {
@@ -149,37 +140,50 @@ h1 {
     /* absolute positionierung, damit es über dem slider liegt */
     font-family: 'Sansation', sans-serif;
     font-weight: bold;
-    font-size: 7rem;
+    font-size: 10rem;
+    /* 1rem = 16px */
     z-index: 1200;
     /* höher als der slider*/
     text-shadow: 2px 2px 5px rgba(65, 65, 65, 0.7);
-    /* schatten */
+    /* Der Schatten wird um 2px nach rechts und 2px nach unten verschoben. 5px Weichzeichner-Radius. */
     text-transform: uppercase;
+    /* Großbuchstaben */
 }
 
 h2 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-family: 'Sansation', sans-serif;
     font-weight: bold;
     text-transform: uppercase;
+    margin-bottom: 30px;
+    /* Abstand nach unten zum nächsten Element */
 }
 
 h3 {
     font-size: 2rem;
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
+    margin-bottom: 30px;
 }
 
 h4 {
     font-size: 1.5rem;
-    font-family: 'Roboto', sans-serif;
-    font-weight: normal;
+    font-family: 'Sansation', sans-serif;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
 p {
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     font-family: 'Roboto', sans-serif;
     font-weight: normal;
+    line-height: 1.8;
+}
+
+a {
+    font-size: 1.5rem; /* Schriftgröße */
+    font-weight: bold; /* Fett */
+    text-transform: uppercase;
 }
 
 #portfolio {
@@ -209,6 +213,83 @@ p {
 
 
 /* 03 grid */
+
+.section-number img {
+    width: 180px;
+    /* Setzt die Breite des Bildes auf 20% der Containerbreite */
+    height: auto;
+    /* Bewahrt das Seitenverhältnis des Bildes */
+    margin-bottom: 30px; /* Abstand nach unten zum nächsten Element */
+}
+
+/* block 1: zu meiner Person */
+#zuMeinerPerson {
+    display: grid;
+    /* setzt einen grid-container für das Element */
+    grid-template-columns: repeat(12, 1fr);
+    /* Erstellt 12 gleich große Spalten. 12 Spalten, die jeweils 1fr (gleicher Anteil an der Breite) einnehmen. */
+    gap: 50px;
+    /* Abstand zwischen den Spalten */
+    width: 100%;
+    max-width: 2500px; /* Begrenzung auf eine fixe Breite */
+    margin: 0 auto; /* Zentriert den Container */
+    align-items: start;
+    /* Elemente oben ausrichten */
+    padding: 100px;
+    box-sizing: border-box;
+}
+
+.content-text {
+    grid-column: span 10;
+    /* Das Element nimmt 6 der 12 verfügbaren Spalten ein. */
+}
+
+#profilbild {
+    grid-column: span 2;
+    /* 4 Spalten für das Bild */
+    text-align: right; /* Bild im Container nach rechts ausrichten */
+}
+
+#profilbild img {
+    max-width: 100%;
+    /* Responsives Bild */
+    height: auto;
+    border-radius: 10px;
+    /* Abgerundete Ecken */
+}
+
+/* block 2: Mein Werdegang */
+#MeinWerdegang {
+    background-color: #2E2E38;
+    display: grid;
+    gap: 50px;
+    width: 100%;
+    max-width: 2500px;
+    margin: 0 auto;
+    align-items: start;
+    padding: 100px;
+    box-sizing: border-box;
+    grid-template-rows: auto auto auto; /* 3 Zeilen */
+}
+
+.bildung {
+    display: grid;
+    grid-column: 1;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 Listenpunkte nebeneinander */
+    gap: 50px;
+    /* Abstand zwischen den Listenpunkten */
+    padding: 0;
+    list-style: none;
+}
+
+.bildung li {
+    background-color: rgba(255, 255, 255, 0.1); /* 10% Weiß */
+    padding: 20px;
+    border-radius: 10px;
+    /* Abgerundete Ecken */
+}
+
 
 
 /* 04 header + footer */
@@ -465,4 +546,15 @@ p {
     min-height: 48px;
     padding: 12px 16px;
     margin: 8px;
+}
+
+.button {
+    display: inline-block;
+    background-color: #85CDAC; /* Grüne Fläche */
+    color: #20252C; /* Schwarzer Text */
+    padding: 20px 30px; /* Mehr Innenabstand für eine größere Fläche */
+    border-radius: 50px; /* Rundes Design */
+    text-align: center; /* Text zentrieren */
+    transition: all 0.3s ease; /* Weiche Übergänge */
+    margin-top: 30px;
 }
