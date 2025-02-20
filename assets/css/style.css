@@ -334,94 +334,101 @@ p {
 
 
 /* 05 slider */
-/* sichtfenster für den slider */
-.cssSlider {
-    position: relative;
-    width: 100%;
+/* Box-Sizing für alle Elemente setzen, damit Padding und Border die Breite und Höhe nicht beeinflussen */
+* {
+    box-sizing: border-box;
+}
+
+/* Slideshow Container */
+.slideshow-container {
+    width: 100vw;
     height: 100vh;
-    /* volle höhe des viewports */
+    position: relative;
+    margin: 0;
     overflow: hidden;
+    /* Verhindert, dass Inhalte, die über die Container-Grenzen hinausgehen, sichtbar sind */
+    z-index: 1;
+    /* Der Container hat einen z-index von 1, um sicherzustellen, dass die Bilder und Punkte darüber liegen */
 }
 
-/* liste der slides */
-.sliderElements {
-    list-style: none;
-    display: flex;
-    /* flexbox, um die slides nebeneinander zu platzieren */
-    transition: transform 0.5s ease-in-out;
-    /* sanfte übergänge beim wechsel */
-    width: 1020;
-    height: 100%;
-}
-
-/* jedes einzelne bild-slide */
-.sliderElements li {
-    flex: 0 0 100%;
-    /* jedes slide nimmt 100% des containers ein */
-    width: 100%;
-    height: 100%;
-}
-
-/* bilder auf die volle breite und höhe des containers anpassen */
-.sliderElements img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* bild passt sich perfekt an die fläche an */
-}
-
-/* unsichtbare radio-buttons */
-input[type="radio"] {
+/* Bilder standardmäßig ausblenden, damit nur eine Folie gleichzeitig angezeigt wird */
+.mySlides {
     display: none;
+    /* Alle Folien sind zunächst unsichtbar */
+    z-index: 0;
+    /* Bilder haben einen niedrigeren z-index als die Navigationspunkte */
 }
 
-/* steuerung für den übergang der slider*/
-input[type="radio"]#slide01:checked~.sliderElements {
-    transform: translateX(0);
-    /* erste bild */
+/* Bilder innerhalb der Slides */
+.mySlides img {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    /* Bild wird skaliert, um den gesamten Container auszufüllen, ohne Verzerrung */
 }
 
-input[type="radio"]#slide02:checked~.sliderElements {
-    transform: translateX(-100%);
-    /* zweite bild */
+/* Caption Text (Beschriftung) für Folien */
+.text {
+    display: none;
+    /* Der Text ist standardmäßig nicht sichtbar */
 }
 
-input[type="radio"]#slide03:checked~.sliderElements {
-    transform: translateX(-200%);
-    /* dritte bild */
-}
-
-
-/* styling für die steuerlabels (punkte) */
-.sliderControls {
+/* Container für die Navigationspunkte (Dots) */
+.dots-container {
     position: absolute;
-    bottom: 30px;
+    top: 90%;
+    /* Der Container wird an der unteren Kante des Bildes positioniert */
     left: 50%;
+    /* Der Container wird horizontal in der Mitte des Bildes ausgerichtet */
     transform: translateX(-50%);
+    /* Zentriert den Container genau in der Mitte */
+    z-index: 1000;
+    /* Sicherstellen, dass die Punkte über den Bildern liegen */
     display: flex;
-    justify-content: center;
-    z-index: 10;
-    width: 100%;
-    gap: 10px;
-    /* Abstand zwischen den Punkten */
+    /* Flexbox wird verwendet, um die Punkte nebeneinander anzuordnen */
 }
 
-.sliderControls label {
+/* Punkte, die als Navigations-Buttons fungieren */
+.dot {
     cursor: pointer;
-    background-color: rgb(255, 255, 255);
+    /* Der Cursor wird zu einem Zeiger, wenn er über die Punkte fährt */
+    height: 30px;
+    width: 30px;
+    margin: 5px;
+    background-color: rgba(255, 255, 255, 1);
     border-radius: 50%;
-    /* rund machen */
-    transition: background-color 0.3s ease;
-    width: 20px;
-    height: 20px;
+    /* Macht die Punkte rund */
     display: inline-block;
-    /* verhindert, dass es wie ein block-element verhält */
+    /* Die Punkte werden nebeneinander angezeigt */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    /* Sanfte Übergänge für Hintergrundfarbe und Skalierung */
 }
 
-.sliderControls label:hover {
-    background-color: rgba(255, 255, 255, 0.555);
-    transform: scale(1.2);
-    /* leichtes vergrößern bei hover */
+/* Stil für den aktiven Punkt und Hover-Effekt */
+.active,
+.dot:hover {
+    background-color: #2ebd9e;
+}
+
+/* Fading-Animation für die Bilder */
+.fade {
+    animation-name: fade;
+    /* Die Animation wird aufgerufen */
+    animation-duration: 1.5s;
+    /* Die Animation dauert 1,5 Sekunden */
+}
+
+/* Definition der Fade-Animation */
+@keyframes fade {
+    from {
+        opacity: .4;
+        /* Zu Beginn ist die Folie etwas transparent */
+    }
+
+    to {
+        opacity: 1;
+        /* Am Ende der Animation wird die Folie vollständig sichtbar */
+    }
 }
 
 /* hero image */
