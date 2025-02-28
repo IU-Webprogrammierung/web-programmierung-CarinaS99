@@ -12,12 +12,13 @@
 <body>
 
     <header>
-        <h1 id="projekte">Projekte</h1>
-        <!-- navigation - burger menü animiert | w3 schools -->
-        <nav id="navigation" role="navigation" aria-label="Hauptnavigation">
-            <!-- unsichtbare checkbox -->
+        <h1>Projekte</h1>
+        <!-- Navigation - Burger Menü animiert -->
+        <nav id="navigation" aria-label="Hauptnavigation">
+            <!-- Unsichtbare Checkbox zum Steuerung des Menüs -->
             <input type="checkbox" id="menu-toggle" aria-label="Menü anzeigen" aria-expanded="false" />
-            <!-- burger symbol -->
+
+            <!-- Burger-Symbol, das beim Klicken das Menü öffnet -->
             <label for="menu-toggle" class="burger-icon" aria-label="Menü öffnen" aria-controls="meny" tabindex="0">
                 <span class="visually-hidden">Menü öffnen</span>
                 <div class="bar1"></div>
@@ -25,175 +26,53 @@
                 <div class="bar3"></div>
             </label>
 
-            <!-- liste der menüpunkte -->
+            <!-- Menü-Liste -->
             <div id="meny">
-                <ul class="menu" role="menubar">
-                    <li role="none"><a href="index.html" role="menuitem">Home</a></li>
-                    <li role="none"><a href="projekte.html" role="menuitem">Projekte</a></li>
-                    <li role="none"><a href="kompetenzen.html" role="menuitem">Kompetenzen</a></li>
-                    <li role="none"><a href="kontakt.html" role="menuitem">Kontakt</a></li>
+                <ul class="menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="projekte.html">Projekte</a></li>
+                    <li><a href="kompetenzen.html">Kompetenzen</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
                 </ul>
             </div>
         </nav>
-
-        <!-- JavaScript für die Tastatursteuerung des Menüs -->
-        <script>
-            /* Warten, bis die gesamte Seite geladen ist */
-            document.addEventListener("DOMContentLoaded", function () {
-                /* Elemente aus dem DOM abrufen */
-                const menuToggle = document.getElementById("menu-toggle"); /* Die Checkbox für das Menü */
-                const menu = document.getElementById("meny"); /* Das eigentliche Menü */
-                const menuItems = menu.querySelectorAll("a"); /* Alle Links im Menü */
-                const burgerIcon = document.querySelector(".burger-icon"); /* Das Burger-Symbol */
-
-                /* Funktion zum Öffnen des Menüs */
-                function openMenu() {
-                    menuToggle.checked = true; /* Die Checkbox aktivieren (Menü wird sichtbar) */
-                    menuToggle.setAttribute("aria-expanded", "true"); /* Screenreader informieren, dass das Menü geöffnet ist */
-                    menuItems[0].focus(); /* Den Fokus auf das erste Menüelement setzen, damit Tastaturnutzer navigieren können */
-                }
-
-                /* Funktion zum Schließen des Menüs */
-                function closeMenu() {
-                    menuToggle.checked = false; /* Die Checkbox deaktivieren (Menü wird versteckt) */
-                    menuToggle.setAttribute("aria-expanded", "false"); /* Screenreader informieren, dass das Menü geschlossen ist */
-                    burgerIcon.focus(); /* Fokus zurück auf das Burger-Symbol setzen, damit der Nutzer weiter navigieren kann */
-                }
-
-                /* Wenn der Nutzer die "Enter"- oder die "Leertaste" drückt, wird das Menü geöffnet */
-                burgerIcon.addEventListener("keydown", function (event) {
-                    if (event.key === "Enter" || event.key === " ") {
-                        event.preventDefault(); /* Verhindert, dass die Seite scrollt, falls die Leertaste gedrückt wird */
-                        openMenu(); /* Menü öffnen */
-                    }
-                });
-
-                /* Wenn der Nutzer die "Escape"-Taste drückt, wird das Menü geschlossen */
-                document.addEventListener("keydown", function (event) {
-                    if (event.key === "Escape" && menuToggle.checked) {
-                        closeMenu(); /* Menü schließen */
-                    }
-                });
-
-                /* Falls der Fokus das Menü verlässt, wird das Menü automatisch geschlossen */
-                menuItems[menuItems.length - 1].addEventListener("blur", function () {
-                    /* Ein kleines Timeout, um sicherzustellen, dass der neue Fokus geprüft wird */
-                    setTimeout(() => {
-                        if (!menu.contains(document.activeElement)) { /* Falls kein Menüelement mehr fokussiert ist */
-                            closeMenu(); /* Menü schließen */
-                        }
-                    }, 100);
-                });
-            });
-        </script>
-
     </header>
 
-    <main role="main">
 
-        <!-- Slideshow container
-         enthält alle Bilder der Slideshow und die Dots, um zwischen den Bildern zu navigieren -->
-        <div class="slideshow-container">
+    <main>
 
-            <!-- Jeder Slide wird in einem div mit der Klasse mySlides fade umschlossen. Die Klasse fade wird später für die Animation verwendet-->
+        <!-- Slideshow container -->
+        <section class="slideshow-container">
+
             <div class="mySlides fade">
-                <img src="assets/images/Slider_Webdesign.jpg" style="width:100%"
-                    alt="Mock-ups von zwei Laptops und einem Handy auf einem lila Verlauf" title="Mock-ups Webdesign">
-                <div class="text">Mock-ups Webdesign</div>
+                <img class="sliderimg" src="assets/images/Slider_Webdesign.jpg">
             </div>
 
             <div class="mySlides fade">
-                <img src="assets/images/Slider_MobilDesign.jpg" style="width:100%"
-                    alt="Mock-ups von Handys auf einem grünen Verlauf" title="Mock-ups Mobile Design">
-                <div class="text">Mock-ups Mobile Design</div>
+                <img class="sliderimg" src="assets/images/Slider_MobilDesign.jpg">
             </div>
 
-            <!-- Dots 
-             Dieser Container umschließt die Dots, die als Navigationselemente dienen. -->
             <div class="dots-container">
-                <!-- Jeder Dot ist ein span-Element mit der Klasse dot. 
-                 Durch das onclick-Attribut wird eine JavaScript-Funktion aufgerufen, um das entsprechende Bild anzuzeigen, wenn der Benutzer auf den Punkt klickt.-->
-                <span class="dot" onclick="currentSlide(1)"
-                    onkeydown="if(event.key === 'Enter' || event.key === ' ') { currentSlide(1); }" role="button"
-                    tabindex="0" aria-label="Gehe zur Folie 1">
-                </span> <!-- keydown für Tastaturunterstützung -->
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
 
-                <span class="dot" onclick="currentSlide(2)"
-                    onkeydown="if(event.key === 'Enter' || event.key === ' ') { currentSlide(2); }" role="button"
-                    tabindex="0" aria-label="Gehe zur Folie 2">
-                </span>
             </div>
 
-        </div>
+            <script src="assets/javascript/script.js"></script>
 
-        <!-- JavaScript -->
-        <script>
-            let slideIndex = 1;
-            /* 
-            Diese Zeile legt fest, dass die erste Folie (Bild) beim Laden der Seite angezeigt wird.
-            Die Variable 'slideIndex' wird verwendet, um die aktuelle Folie zu verfolgen.
-            Zu Beginn ist der Wert 1, was bedeutet, dass die erste Folie angezeigt wird.
-            */
+        </section>
 
-            showSlides(slideIndex);
-            /* 
-            Diese Funktion wird aufgerufen, um die erste Folie anzuzeigen. Sie nimmt den aktuellen 'slideIndex' als Parameter und sorgt dafür, dass die richtige Folie auf dem Bildschirm erscheint.
-            */
-
-            // Funktion, um direkt zu einer bestimmten Folie zu springen
-            function currentSlide(n) {
-                /* 
-                Diese Funktion wird verwendet, wenn du direkt zu einer bestimmten Folie springen möchtest.
-                Der Wert 'n' ist die Nummer der Folie, die angezeigt werden soll (z. B. 1 für die erste Folie, 2 für die zweite Folie usw.).
-                Die Funktion setzt den Wert von 'slideIndex' auf die Folie, die du angezeigt haben möchtest,
-                und ruft dann 'showSlides' auf, um diese Folie anzuzeigen.
-                */
-                showSlides(slideIndex = n);
-            }
-
-            /* Funktion zum Anzeigen der Folie basierend auf dem aktuellen Wert von slideIndex 
-            Diese Funktion übernimmt die Logik, um sicherzustellen, dass immer nur eine Folie angezeigt wird.
-            Sie bekommt den Wert von 'n' (dem Index der zu zeigenden Folie) und zeigt diese Folie an.*/
-            function showSlides(n) {
-
-                let i;
-                let slides = document.getElementsByClassName("mySlides");  /* Alle Folien mit der Klasse "mySlides" holen */
-                let dots = document.getElementsByClassName("dot");  /* Alle Navigationspunkte (Dots) holen */
-
-                /* Wenn der 'n' Wert größer ist als die Anzahl der Folien, zurück auf die erste Folie setzen */
-                if (n > slides.length) {
-                    slideIndex = 1;
-                }
-                /* Wenn der 'n' Wert kleiner als 1 ist (also der Benutzer zurückgeht), zur letzten Folie springen */
-                if (n < 1) {
-                    slideIndex = slides.length;
-                }
-
-                /* Alle Folien ausblenden (unsichtbar machen) */
-                for (i = 0; i < slides.length; i++) {
-                    slides[i].style.display = "none";
-                }
-
-                /* Alle Navigationspunkte zurücksetzen (keine "aktive" Klasse mehr) */
-                for (i = 0; i < dots.length; i++) {
-                    dots[i].className = dots[i].className.replace(" active", "");
-                }
-
-                /* Die Folie anzeigen, die dem aktuellen slideIndex entspricht (die Folie, die wir sehen wollen) */
-                slides[slideIndex - 1].style.display = "block";
-
-                /* Den Navigationspunkt aktiv setzen (der Punkt, der die aktuelle Folie darstellt, wird hervorgehoben) */
-                dots[slideIndex - 1].className += " active";
-            }
-        </script>
 
         <!-- block 01: Stadtrallye -->
-        <section id="stadtrallye" class="content-block">
+        <section id="stadtrallye">
 
             <div class="content-text">
-                <h2><span class="section-number"><img src="assets/images/01.svg"
-                            alt="Die Nummer 01 als Symbol für den ersten Bereich" title="Nummer 01">
-                    </span>Stadtrallye - Webdesign</h2>
+                <h2 id="projectsTitle"><span class="section-number">
+                        <img src="assets/images/01.svg" alt="Die Nummer 01 als Symbol für den ersten Bereich"
+                            title="Nummer 01">
+                    </span>
+                    Stadtrallye &ndash; Webdesign
+                </h2>
                 <p>
                     Im Rahmen dieses Projekts habe ich eine interaktive Stadtrallye konzipiert und gestaltet. Der
                     Prozess
@@ -235,12 +114,12 @@
         </section>
 
         <!-- block 02: Urban Gardening -->
-        <section id="urbanGardening" class="content-block">
+        <section id="urbanGardening">
 
             <div class="content-text">
                 <h2><span class="section-number"><img src="assets/images/02.svg"
                             alt="Die Nummer 02 als Symbol für den zweiten Bereich" title="Nummer 02">
-                    </span>Urban Gardening - Mobile Design</h2>
+                    </span>Urban Gardening &ndash; Mobile Design</h2>
                 <p>
                     Dieses Projekt umfasst die Konzeption und Gestaltung einer Mobile-App für Urban Gardening. Ziel
                     war
@@ -284,19 +163,12 @@
 
     </main>
 
-    <footer role="contentinfo">
-        <button id="backToTop" aria-label="Nach oben scrollen">
-            <span aria-hidden="true">↑</span>
-        </button>
-        <p>
-            &copy; 2025 Carina Schlachter
-        </p>
-        <p>
-            88131 Lindau | Rangers 65 |
-            <a href="mailto:carina.schlachter@iu-study.org"
-                aria-label="E-Mail an Carina Schlachter senden">carina.schlachter@iu-study.org</a> |
-            <a href="tel:+4915205891524">+49 152 05891524</a>
-        </p>
+    <footer>
+        <a id="backToTop" href="#" aria-label="Nach oben scrollen">
+            <img src="assets/images/Back-to-top-button.svg" alt="" title="Nach oben scrollen">
+        </a>
+        <p class="copyright">&copy; 2025 Carina Schlachter</p>
+        <a class="impressum" href="impressum.html">Impressum</a>
     </footer>
 
 </body>

@@ -5,20 +5,21 @@
 	
 	02) fonts
 	
-	03) grid
+	03) grid + content
+        3.1.) allgemein
+        3.2.) index
+        3.3.) projekte
+        3.4.) kompetenzen
+        3.5.) kontakt
+        3.6.) impressum
 	
-	04) header + footer
+	04) navigation
 
     05) slider
 
-    06) content
-		- 6.1) home
-		- 6.2) unterseiten
-		- 6.3) allgemeines
+	06) button
 	
-	07) button
-	
-	08) responsive
+	07) responsive
 */
 
 
@@ -45,16 +46,29 @@ ul {
     padding: 0;
 }
 
+h3 {
+    margin-top: 50px;
+}
+
+p {
+    max-width: 850px;
+    word-wrap: break-word;
+    /* Falls lange Wörter enthalten sind, umbrechen */
+    margin-bottom: 20px;
+}
+
 ul {
     list-style: none;
     /* listen-symbole entfernen */
 }
 
-a {
+a,
+header,
+body,
+footer {
     text-decoration: none;
     /* unterstreichung bei links entfernen */
     color: white;
-    font-family: 'Sansation';
 }
 
 html {
@@ -68,8 +82,6 @@ html {
     /* automatische silbentrennung */
     -ms-hyphens: auto;
     hyphens: auto;
-    box-sizing: border-box;
-    /* Alle Elemente haben border-box, d. h. padding und border werden in die Breite einberechnet */
     background-color: #20252C;
     font-size: 16px;
     /* standardgröße, 1rem = 16px */
@@ -91,6 +103,12 @@ html {
     border: 0;
 }
 
+/* Box-Sizing für alle Elemente */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
 /* 02 fonts */
 
@@ -129,30 +147,37 @@ html {
     font-style: normal;
 }
 
-header,
-body,
-footer {
-    color: white;
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1,
+h2,
+h4,
+a {
+    font-family: 'Sansation', sans-serif;
 }
 
 h1 {
     position: absolute;
     /* absolute positionierung, damit es über dem slider liegt */
-    font-family: 'Sansation', sans-serif;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Zentriert das h1 exakt */
     font-weight: bold;
     font-size: 10rem;
     /* 1rem = 16px */
     z-index: 1200;
-    /* höher als der slider*/
     text-shadow: 2px 2px 5px rgba(65, 65, 65, 0.7);
     /* Der Schatten wird um 2px nach rechts und 2px nach unten verschoben. 5px Weichzeichner-Radius. */
     text-transform: uppercase;
-    /* Großbuchstaben */
+    white-space: nowrap;
+    /* Verhindert das Umbrechen */
 }
 
 h2 {
     font-size: 3.5rem;
-    font-family: 'Sansation', sans-serif;
     font-weight: bold;
     text-transform: uppercase;
     margin-bottom: 30px;
@@ -161,67 +186,99 @@ h2 {
 
 h3 {
     font-size: 2rem;
-    font-family: 'Roboto', sans-serif;
     font-weight: bold;
     margin-bottom: 30px;
 }
 
 h4 {
     font-size: 1.5rem;
-    font-family: 'Sansation', sans-serif;
     font-weight: bold;
     margin-bottom: 10px;
 }
 
 p {
     font-size: 1.25rem;
-    font-family: 'Roboto', sans-serif;
     font-weight: normal;
     line-height: 1.8;
 }
 
 a {
-    font-size: 1.5rem; /* Schriftgröße */
-    font-weight: bold; /* Fett */
-    text-transform: uppercase;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
-#portfolio {
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    /* korrektur für exakte zentrierung */
-}
-
-#projekte {
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-#kompetenzen {
-    top: 50%;
-    left: 55%;
-    transform: translate(-50%, -50%);
-}
-
-#kontakt {
-    top: 40%;
-    left: 40%;
-    transform: translate(-50%, -50%);
+.impressum {
+    font-size: 1.25rem;
+    font-weight: normal;
+    text-decoration: underline;
 }
 
 
-/* 03 grid */
+/* 03 grid + content */
+/* 3.1.) allgemein */
 
+/* section-number */
 .section-number img {
+    display: block;
     width: 180px;
-    /* Setzt die Breite des Bildes auf 20% der Containerbreite */
     height: auto;
     /* Bewahrt das Seitenverhältnis des Bildes */
-    margin-bottom: 30px; /* Abstand nach unten zum nächsten Element */
+    margin-bottom: 30px;
 }
 
+/* Footer */
+footer {
+    width: 100%;
+    padding: 50px 100px;
+    box-sizing: border-box;
+    display: flex;
+    /* Nutze Flexbox */
+    justify-content: space-between;
+    /* Elemente links und rechts verteilen */
+    align-items: center;
+    /* Vertikal ausrichten */
+}
+
+/* Copyright links */
+.copyright {
+    margin: 0;
+    white-space: nowrap;
+    /* Kein Umbruch */
+}
+
+/* Impressum rechts */
+.impressum {
+    margin: 0;
+    text-align: right;
+    white-space: nowrap;
+}
+
+/* zwischenzitat */
+.quote {
+    position: relative;
+    /* Ermöglicht absolute Positionierung innerhalb */
+    width: 100%;
+    grid-template-columns: repeat(12, 1fr);
+}
+
+#quoteTitle {
+    position: absolute;
+    top: 50%;
+    left: 100px;
+    transform: translateY(-50%);
+    /* Verschiebt den Text um die Hälfte seiner eigenen Höhe nach oben */
+    grid-column: span 1;
+}
+
+.quoteimg img {
+    width: 100%;
+    /* Bild nimmt die volle Breite ein */
+    height: auto;
+    /* Automatische Höhenanpassung */
+    display: block;
+}
+
+/* 3.2.) index */
 /* block 1: zu meiner Person */
 #zuMeinerPerson {
     display: grid;
@@ -231,31 +288,27 @@ a {
     gap: 50px;
     /* Abstand zwischen den Spalten */
     width: 100%;
-    max-width: 2500px; /* Begrenzung auf eine fixe Breite */
-    margin: 0 auto; /* Zentriert den Container */
+    margin: 0 auto;
+    /* Zentriert den Container */
     align-items: start;
     /* Elemente oben ausrichten */
     padding: 100px;
-    box-sizing: border-box;
 }
 
-.content-text {
-    grid-column: span 10;
-    /* Das Element nimmt 6 der 12 verfügbaren Spalten ein. */
+#zuMeinerPerson .content-text {
+    grid-column: span 8;
 }
 
 #profilbild {
-    grid-column: span 2;
-    /* 4 Spalten für das Bild */
-    text-align: right; /* Bild im Container nach rechts ausrichten */
+    grid-column: span 4;
+    text-align: left;
+    width: 100%;
 }
 
 #profilbild img {
-    max-width: 100%;
-    /* Responsives Bild */
+    width: 100%;
     height: auto;
     border-radius: 10px;
-    /* Abgerundete Ecken */
 }
 
 /* block 2: Mein Werdegang */
@@ -264,12 +317,15 @@ a {
     display: grid;
     gap: 50px;
     width: 100%;
-    max-width: 2500px;
     margin: 0 auto;
     align-items: start;
     padding: 100px;
-    box-sizing: border-box;
-    grid-template-rows: auto auto auto; /* 3 Zeilen */
+    grid-template-rows: auto auto auto;
+    /* 3 Zeilen */
+}
+
+#MeinWerdegang p {
+    margin-bottom: 0;
 }
 
 .bildung {
@@ -280,48 +336,275 @@ a {
     gap: 50px;
     /* Abstand zwischen den Listenpunkten */
     padding: 0;
-    list-style: none;
 }
 
 .bildung li {
-    background-color: rgba(255, 255, 255, 0.1); /* 10% Weiß */
+    background-color: rgba(255, 255, 255, 0.1);
     padding: 20px;
     border-radius: 10px;
     /* Abgerundete Ecken */
 }
 
+.praktika {
+    margin-top: 50px;
+}
+
+/* block 3: Meine Projekte */
+#MeineProjekte {
+    display: grid;
+    gap: 50px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 100px;
+    text-align: start;
+}
+
+.project-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+}
+
+.project-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.project-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+}
+
+.project-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 10px;
+}
+
+.project-item:hover::before {
+    opacity: 1;
+}
+
+.project-item span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #85CDAC;
+    color: #20252C;
+    padding: 20px 30px;
+    border-radius: 50px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    text-transform: uppercase;
+}
+
+.project-item:hover span {
+    opacity: 1;
+    display: inline-block;
+}
+
+/* Änderungen für den "active" Zustand */
+.project-item:active::before {
+    opacity: 0.5;
+    /* Schwarze Überlagerung beim Klick auf 50% Transparenz setzen */
+}
+
+.project-item:active span {
+    opacity: 0.5;
+    /* Text beim Klick auf 50% Transparenz setzen */
+}
+
+/* 3.3.) projekte */
+/* block 01: Stadtrallye */
+#stadtrallye {
+    display: grid;
+    width: 100%;
+    align-items: start;
+    padding: 100px;
+    gap: 50px;
+}
+
+.project-image-container {
+    display: grid;
+    grid-column: span 12;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+}
+
+.project-image-container img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+/* block 02: Urban Gardening */
+#urbanGardening {
+    background-color: #2E2E38;
+    display: grid;
+    gap: 50px;
+    width: 100%;
+    margin: 0 auto;
+    align-items: start;
+    padding: 100px;
+}
+
+/* 3.4.) kompetenzen*/
+/* block 01: Kompetenzen */
+#kompetenz {
+    padding: 100px;
+}
+
+#motivation {
+    background-color: #2E2E38;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+    width: 100%;
+    align-items: start;
+    padding: 100px;
+}
+
+#ablaufplan {
+    grid-column: 1;
+    text-align: left;
+    width: 100%;
+}
+
+#ablaufplan img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+#motivation .content-text {
+    grid-column: 2;
+}
+
+/* block 03: Tools und Sprachen */
+#tools-sprachen {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+    padding: 100px;
+}
+
+#tools-sprachen .tools,
+#tools-sprachen .sprachen {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 50px;
+}
+
+#tools-sprachen .tools figure,
+#tools-sprachen .sprachen figure {
+    padding-bottom: 50px;
+}
+
+#tools-sprachen .tools {
+    grid-column: 1;
+}
+
+#tools-sprachen .sprachen {
+    grid-column: 2;
+}
+
+#tools-sprachen ul {
+    list-style: disc;
+    text-align: left;
+    padding-left: 20px;
+}
+#tools-sprachen li {
+    padding-bottom: 10px;
+}
+
+/* 3.5.) kontakt */
+#contact{
+    padding: 100px;
+}
+
+.contact-method {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    width: 100%;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.contact-item img {
+    margin-right: 30px;
+}
+
+.contact-item p {
+    margin: 0;
+}
+
+.contact-item a {
+font-family: 'Roboto', sans-serif;
+font-weight: normal;
+font-size: 1.25rem;
+}
+
+/* 3.6.) impressum */
+#impressum{
+    padding:100px;
+}
+
+#impressum p{
+    margin-bottom: 0;
+}
+
+#impressum a {
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    font-size: 1.25rem;
+    }
 
 
-/* 04 header + footer */
+/* 04 navigation */
 /* navigation style */
 #navigation {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    color: white;
     z-index: 1100;
-    /* höher als das bild */
     padding: 10px;
 }
 
-/* unsichtbare checkbox */
+/* Unsichtbare Checkbox für die Menüsteuerung */
 #menu-toggle {
     display: none;
 }
 
-/* burger-symbol style */
+/* Burger-Symbol */
 .burger-icon {
-    display: inline-block;
-    /* element wird wie ein block behandelt, bleibt aber im selben fluss wie text oder andere inline-elemente. */
     cursor: pointer;
     position: absolute;
     top: 20px;
     left: 50px;
     text-shadow: 2px 2px 5px rgba(48, 48, 48, 0.7);
-    /* schatten */
     z-index: 1110;
-    /* höher als z-index des menüs gesetzt, sodass das menü nicht das icon verdeckt */
+    /* Höher als das Menü */
 }
 
 .burger-icon .bar1,
@@ -332,61 +615,54 @@ a {
     background-color: rgb(255, 255, 255);
     margin: 6px 0;
     transition: 0.4s;
-    /* sorgt dafür, dass eine veränderung über 0,4 sekunden sanft animiert wird */
+    /* Sanfte Animation */
 }
 
+/* Hover-Effekt für das Burger-Symbol */
 .burger-icon:hover {
     transform: scale(1.1);
-    /*vergrößert das burger-icon um 10% */
+    /* Vergrößert das Icon um 10% */
 }
 
-/* wenn das menü (über die checkbox #menu-toggle) aktiviert ist (checked), wird das burger menü animiert */
-/* die erste linie wird um 11px verschoben und um -45 grad rotiert, sodass sie wie ein "X" aussieht */
+/* Animation beim Öffnen des Menüs (mit :checked) */
 #menu-toggle:checked+.burger-icon .bar1 {
     transform: translate(0, 11px) rotate(-45deg);
+    /* Erste Linie */
 }
 
-/* die zweite linie wird unsichtbar gemacht (opacity 0), um platz für die animation zu schaffen */
 #menu-toggle:checked+.burger-icon .bar2 {
     opacity: 0;
+    /* Zweite Linie unsichtbar */
 }
 
-/* die dritte linie wird um 11px verschoben und um 45 grad rotiert, sodass sie ebenfalls zum "X" wird */
 #menu-toggle:checked+.burger-icon .bar3 {
     transform: translate(0, -11px) rotate(45deg);
+    /* Dritte Linie */
 }
 
-/* menü styles */
+/* Menü */
 #meny {
     position: fixed;
     top: 0;
     left: -250px;
-    /* startposition außerhalb des bildschirms */
     height: 100vh;
     width: 250px;
     background-color: #20252C;
     transition: left 0.4s ease-in-out;
     z-index: 999;
-    /* geringer als das burger-symbol */
     display: flex;
-    /* aktiviert flexbox-layout, bei dem die elemente innerhalb des containers flexibel ausgerichtet werden */
     flex-direction: column;
-    /* bestimmt, dass die flexbox-kinder-elemente vertikal (in einer spalte) und nicht horizontal (in einer reihe) angeordnet werden */
     align-items: center;
-    /* ausrichtung zentriert */
     justify-content: center;
-    /* richtet die flexbox-kinder entlang der hauptachse (in diesem fall vertikal, aufgrund von flex-direction: column) aus und platziert sie in der mitte des containers */
 }
 
-/* menü sichtbar machen */
+/* Menü sichtbar machen, wenn die Checkbox :checked ist */
 #menu-toggle:checked~#meny {
     left: 0;
 }
 
-/* listen style */
+/* Menü-Liste */
 #meny ul {
-    padding: 0;
-    margin: 0;
     text-align: left;
 }
 
@@ -395,128 +671,93 @@ a {
 }
 
 #meny li a {
-    text-decoration: none;
-    color: rgb(255, 255, 255);
     font-size: 18px;
     text-transform: uppercase;
-    /* versalien */
+    /* Versalien */
     transition: color 0.3s ease-in-out;
 }
 
-/* farbe beim hover */
+/* Hover-Effekt für Links im Menü */
 #meny li a:hover {
     color: #85CDAC;
 }
 
-/* menü einklappen, wenn das burger-symbol erneut geklickt wird */
+/* Menü einklappen, wenn das Burger-Symbol erneut geklickt wird */
 #menu-toggle:not(:checked)~#meny {
     left: -250px;
+    /* Menü außerhalb des Bildschirms */
 }
-
 
 /* 05 slider */
-/* Box-Sizing für alle Elemente setzen, damit Padding und Border die Breite und Höhe nicht beeinflussen */
-* {
-    box-sizing: border-box;
-}
-
-/* Slideshow Container */
 .slideshow-container {
-    width: 100vw;
-    height: 100vh;
     position: relative;
-    margin: 0;
-    overflow: hidden;
-    /* Verhindert, dass Inhalte, die über die Container-Grenzen hinausgehen, sichtbar sind */
+    width: 100vw;
     z-index: 1;
-    /* Der Container hat einen z-index von 1, um sicherzustellen, dass die Bilder und Punkte darüber liegen */
 }
 
-/* Bilder standardmäßig ausblenden, damit nur eine Folie gleichzeitig angezeigt wird */
 .mySlides {
     display: none;
-    /* Alle Folien sind zunächst unsichtbar */
-    z-index: 0;
-    /* Bilder haben einen niedrigeren z-index als die Navigationspunkte */
+    position: relative;
 }
 
-/* Bilder innerhalb der Slides */
-.mySlides img {
-    width: 100vw;
-    height: 100vh;
+.sliderimg {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    /* Bild wird skaliert, um den gesamten Container auszufüllen, ohne Verzerrung */
+    max-height: 800px;
 }
 
-/* Caption Text (Beschriftung) für Folien */
-.text {
-    display: none;
-    /* Der Text ist standardmäßig nicht sichtbar */
-}
-
-/* Container für die Navigationspunkte (Dots) */
 .dots-container {
     position: absolute;
-    top: 90%;
-    /* Der Container wird an der unteren Kante des Bildes positioniert */
+    bottom: 4%;
+    /* Positioniert die Dots vertikal in der Mitte des Bildes */
     left: 50%;
-    /* Der Container wird horizontal in der Mitte des Bildes ausgerichtet */
-    transform: translateX(-50%);
-    /* Zentriert den Container genau in der Mitte */
-    z-index: 1000;
-    /* Sicherstellen, dass die Punkte über den Bildern liegen */
-    display: flex;
-    /* Flexbox wird verwendet, um die Punkte nebeneinander anzuordnen */
+    /* Positioniert die Dots weiter nach rechts */
+    right: 10%;
+    transform: translate(-50%, -50%);
+    /* Verschiebt die Dots genau in die Mitte */
+    text-align: center;
+    width: 100%;
+    z-index: 100;
 }
 
-/* Punkte, die als Navigations-Buttons fungieren */
 .dot {
     cursor: pointer;
-    /* Der Cursor wird zu einem Zeiger, wenn er über die Punkte fährt */
-    height: 30px;
-    width: 30px;
-    margin: 5px;
-    background-color: rgba(255, 255, 255, 1);
+    height: 15px;
+    width: 15px;
+    margin: 0 5px;
+    background-color: #ffffff;
     border-radius: 50%;
-    /* Macht die Punkte rund */
     display: inline-block;
-    /* Die Punkte werden nebeneinander angezeigt */
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    /* Sanfte Übergänge für Hintergrundfarbe und Skalierung */
+    transition: background-color 0.6s ease;
+    z-index: 1100;
 }
 
-/* Stil für den aktiven Punkt und Hover-Effekt */
 .active,
 .dot:hover {
-    background-color: #2ebd9e;
+    background-color: #717171;
 }
 
-/* Fading-Animation für die Bilder */
 .fade {
     animation-name: fade;
-    /* Die Animation wird aufgerufen */
     animation-duration: 1.5s;
-    /* Die Animation dauert 1,5 Sekunden */
 }
 
-/* Definition der Fade-Animation */
 @keyframes fade {
     from {
         opacity: .4;
-        /* Zu Beginn ist die Folie etwas transparent */
     }
 
     to {
         opacity: 1;
-        /* Am Ende der Animation wird die Folie vollständig sichtbar */
     }
 }
+
 
 /* hero image */
 .hero-image {
     position: relative;
     width: 100%;
-    height: 100vh;
     z-index: 999;
     /* sicherstellen, dass das bild unter dem burger-menü liegt */
 }
@@ -524,37 +765,76 @@ a {
 .hero-image img {
     width: 100%;
     height: 100%;
+    max-height: 800px;
     object-fit: cover;
     /* bild wird so skaliert, dass es den container vollständig ausfüllt und die proportionen beibehält */
 }
 
-/* 07 button */
-
-#backToTop {
-    min-width: 48px;
-    min-height: 48px;
-    padding: 12px;
-    /* zusätzlicher klickbereich */
-    margin: 8px;
-    /* abstand zu anderen elementen */
-}
+/* 06 button */
 
 .project-button {
     display: inline-block;
     /* macht es zu einem block-element für bessere größe */
-    min-width: 48px;
-    min-height: 48px;
-    padding: 12px 16px;
-    margin: 8px;
 }
 
 .button {
     display: inline-block;
-    background-color: #85CDAC; /* Grüne Fläche */
-    color: #20252C; /* Schwarzer Text */
-    padding: 20px 30px; /* Mehr Innenabstand für eine größere Fläche */
-    border-radius: 50px; /* Rundes Design */
-    text-align: center; /* Text zentrieren */
-    transition: all 0.3s ease; /* Weiche Übergänge */
+    background-color: #85CDAC;
+    /* Grüne Fläche */
+    color: #20252C;
+    /* Schwarzer Text */
+    padding: 20px 30px;
+    /* Mehr Innenabstand für eine größere Fläche */
+    border-radius: 50px;
+    /* Rundes Design */
+    text-align: center;
+    /* Weiche Übergänge */
     margin-top: 30px;
+    font-family: 'Sansation';
+    font-weight: bold;
+    /* Fett */
+    text-transform: uppercase;
+}
+
+/* Back-to-Top-Button */
+#backToTop {
+    cursor: pointer;
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    padding: 0;
+    z-index: 1000;
+}
+
+/* Bild im Button */
+#backToTop img {
+    width: 48px;
+    height: auto;
+}
+
+/* Hover- & Fokus-Effekte */
+.button,
+#backToTop {
+    transition: opacity 0.3s ease;
+}
+
+.button:hover,
+#backToTop:hover {
+    opacity: 0.8;
+}
+
+.button:active,
+#backToTop:active {
+    opacity: 0.5;
+}
+
+#backToTop:focus {
+    outline: none;
 }
