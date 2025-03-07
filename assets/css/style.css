@@ -241,6 +241,16 @@ footer {
     white-space: nowrap;
 }
 
+/* Hover-Effekt (Transparenz auf 0,7 reduzieren) */
+.impressum:hover {
+    opacity: 0.7; /* Reduziert die Transparenz auf 70% */
+}
+
+/* Klick-Effekt (Transparenz auf 0,5 reduzieren) */
+.impressum:active {
+    opacity: 0.5; /* Reduziert die Transparenz auf 50% */
+}
+
 /* zwischenzitat */
 .quote {
     position: relative;
@@ -395,13 +405,17 @@ footer {
     /* Schwarze Überlagerung beim Klick auf 50% Transparenz setzen */
 }
 
-.project-item:active span {
-    opacity: 0.5;
-    /* Text beim Klick auf 50% Transparenz setzen */
+.project-item:active::before {
+    opacity: 0.8;
+    background-color: rgba(0, 0, 0, 0.8); /* Optional: Etwas hellere Überlagerung beim Klicken */
 }
 
 /* 3.3.) projekte */
 /* block 01: Stadtrallye */
+.sliderprojekte{
+    top: 15%;
+}
+
 .project-image-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -497,6 +511,7 @@ footer {
     border-radius: 10px;
     padding: 30px;
     gap: 30px;
+    cursor: pointer;
 }
 
 .contact-item img {
@@ -514,9 +529,24 @@ footer {
     font-size: 1.25rem;
 }
 
+/* Hover-Effekt */
+.contact-item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Klick-Effekt */
+.contact-item:active {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+
 /* 3.6.) impressum */
 #impressum {
-    padding: 100px;
+    gap: 0px;
+}
+
+#impressum h2{
+    margin: 0;
 }
 
 #impressum p {
@@ -537,7 +567,7 @@ footer {
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1100;
+    z-index: 1300;
     padding: 10px;
 }
 
@@ -553,7 +583,7 @@ footer {
     top: 20px;
     left: 50px;
     text-shadow: 2px 2px 5px rgba(48, 48, 48, 0.7);
-    z-index: 1110;
+    z-index: 1300;
     /* Höher als das Menü */
 }
 
@@ -572,6 +602,10 @@ footer {
 .burger-icon:hover {
     transform: scale(1.1);
     /* Vergrößert das Icon um 10% */
+}
+
+#menu-toggle:checked + .burger-icon {
+    position: fixed;
 }
 
 /* Animation beim Öffnen des Menüs (mit :checked) */
@@ -630,6 +664,10 @@ footer {
 /* Hover-Effekt für Links im Menü */
 #meny li a:hover {
     color: #85CDAC;
+}
+
+#meny li a:active {
+    color: rgba(133, 205, 172, 0.5); /* 50% der ursprünglichen Farbe */
 }
 
 /* Menü einklappen, wenn das Burger-Symbol erneut geklickt wird */
@@ -738,7 +776,7 @@ footer {
 #backToTop {
     cursor: pointer;
     position: fixed;
-    bottom: 200px;
+    bottom: 100px;
     right: 20px;
     width: 50px;
     height: 50px;
@@ -765,7 +803,7 @@ footer {
 
 .button:hover,
 #backToTop:hover {
-    opacity: 0.8;
+    opacity: 0.7;
 }
 
 .button:active,
@@ -788,8 +826,7 @@ footer {
     p { font-size: 1.125rem; }  /* 18px */
 
     #backToTop {
-        width: 5px;
-        bottom: 90px;
+        right: 3px;
     }
 
     #backToTop img {
@@ -807,29 +844,91 @@ footer {
 
     #zuMeinerPerson {
         grid-template-columns: 1fr;
-        /* Nur noch eine Spalte */
     }
 
     #profilbild img {
         max-width: 50%;
-        /* Bildgröße begrenzen */
         margin: 0 auto;
     }
 
     .bildung {
         grid-template-columns: repeat(2, 1fr);
-        /* 2 Spalten statt 3 */
         gap: 30px;
+    }
+
+    .sliderprojekte{
+        top: 10%;
+    }
+
+    #motivation {
+        grid-template-columns: 1fr;
+    }
+
+    #motivation .content-text {
+        grid-column: 1;
+    }
+
+    #tools-sprachen {
+        grid-template-columns: 1fr;
+    }
+
+    #tools-sprachen .tools,
+    #tools-sprachen .sprachen {
+        padding: 30px;
+    }
+
+    
+    #tools-sprachen .tools,
+    #tools-sprachen .sprachen {
+        grid-column: 1;
+    }
+
+    #tools-sprachen .tools figure,
+    #tools-sprachen .sprachen figure {
+        padding-bottom: 30px;
+    }
+
+    .tools figure, .sprachen figure {
+        width: 50%;
+        margin: 0 auto;
+    }
+    
+    .tools figure img, .sprachen figure img {
+        width: 100%;
+        height: auto;
+    }
+
+    #impressum h3{
+        margin-top: 30px;
     }
 }
 
 /* Media Query für 360px bis 768px */
 @media (max-width: 768px) {
-    h1 { font-size: 4.5rem; } /* 72px */
+    h1 { font-size: 4rem; } /* 72px */
     h2 { font-size: 2rem; }  /* 32px */
     h3 { font-size: 1.5rem; } /* 24px */
     h4, a { font-size: 1.25rem; } /* 20px */
     p { font-size: 1rem; }   /* 16px */
+    
+    #menu-toggle:checked~#meny {
+        width: 100%;  /* Menübreite auf 100% erweitern, wenn das Menü geöffnet ist */
+    }
+
+    #meny ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .meny li a {
+        text-align: center;
+    }
+
+    .burger-icon{
+        left: 30px;
+    }
     
     #backToTop img {
         width: 24px;
@@ -848,15 +947,28 @@ footer {
         grid-template-columns: 1fr;
         gap: 30px;
     }
-}
 
-/* Media Query für 600px und kleiner */
-@media (max-width: 500px) {
-    h1 {
-        font-size: 2.5rem; /* 40px */
-        padding-bottom: 100px;
+    .project-image-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
     }
 
+    .sliderprojekte{
+        top: 8%;
+    }
+
+    .contact-method {
+        grid-template-columns: 1fr; /* Einspaltig bei 768px oder kleiner */
+        gap: 30px;
+    }
+}
+
+/* Media Query für 500px und kleiner */
+@media (max-width: 500px) {
+    h1 {
+        font-size: 1.75rem; /* 28px */
+        top: 10%;
+    }
     h2 {
         font-size: 1.5rem; /* 24px */
         margin: 0;
@@ -871,10 +983,14 @@ footer {
 
     h4 {font-size: 1.125rem; /* 18px */}
     p {font-size: 1rem; /* 16px */}
-    a, .impressum { font-size: 1.125rem; /* 18px */}
+    a, #impressum a, .impressum, .contact-item a {font-size: 1rem; /* 16px */}
 
     .button {
         width: 100%;
+    }
+
+    #backToTop {
+        right: 2px;
     }
 
     .content-block {
@@ -924,5 +1040,13 @@ footer {
 
     #MeineProjekte {
         gap: 30px;
+    }
+
+    .sliderprojekte{
+        top: 5%;
+    }
+
+    .contact-item {
+        grid-template-columns: 1fr; /* Setzt die Items in einer Spalte */
     }
 }
