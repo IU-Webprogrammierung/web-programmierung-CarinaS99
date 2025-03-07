@@ -24,13 +24,6 @@
 
 
 /* 01) reset und basics */
-*,
-*::before,
-*::after {
-    box-sizing: inherit;
-    /* sorgt dafür, dass alle Elemente sowie ihre ::before und ::after pseudo-elemente das box-sizing-verhalten von einem eltern-element erben. */
-}
-
 /* Standardabstände zurücksetzen */
 body,
 h1,
@@ -72,10 +65,7 @@ footer {
 }
 
 html {
-    overflow-y: scroll;
-    /* vertikale scrollbalken immer sichtbar */
-    overflow-x: hidden;
-    /* Verhindert horizontales Scrollen */
+    overflow: hidden scroll;
     height: 100%;
     /* volle höhe des viewports */
     -webkit-hyphens: auto;
@@ -96,7 +86,7 @@ html {
     padding: 0;
     margin: -1px;
     overflow: hidden;
-    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
     /* Vollständige Ausblendung. */
     white-space: nowrap;
     /* Verhindert Zeilenumbrüche */
@@ -110,8 +100,7 @@ html {
     padding: 0;
 }
 
-/* 02 fonts */
-
+/* 02) fonts */
 /* Roboto regular */
 /* font-face Ermöglicht das Einbinden einer Schriftart, die sich im Projektordner befindet. */
 @font-face {
@@ -158,6 +147,14 @@ a {
     font-family: 'Sansation', sans-serif;
 }
 
+h1,
+h2,
+h3,
+h4,
+a {
+    font-weight: bold;
+}
+
 h1 {
     position: absolute;
     /* absolute positionierung, damit es über dem slider liegt */
@@ -165,7 +162,6 @@ h1 {
     left: 50%;
     transform: translate(-50%, -50%);
     /* Zentriert das h1 exakt */
-    font-weight: bold;
     font-size: 10rem;
     /* 1rem = 16px */
     z-index: 1200;
@@ -178,7 +174,6 @@ h1 {
 
 h2 {
     font-size: 3.5rem;
-    font-weight: bold;
     text-transform: uppercase;
     margin-bottom: 30px;
     /* Abstand nach unten zum nächsten Element */
@@ -186,13 +181,11 @@ h2 {
 
 h3 {
     font-size: 2rem;
-    font-weight: bold;
     margin-bottom: 30px;
 }
 
 h4 {
     font-size: 1.5rem;
-    font-weight: bold;
     margin-bottom: 10px;
 }
 
@@ -204,7 +197,7 @@ p {
 
 a {
     font-size: 1.5rem;
-    font-weight: bold;
+    white-space: nowrap;
 }
 
 .impressum {
@@ -214,7 +207,7 @@ a {
 }
 
 
-/* 03 grid + content */
+/* 03) grid + content */
 /* 3.1.) allgemein */
 
 /* section-number */
@@ -222,21 +215,16 @@ a {
     display: block;
     width: 180px;
     height: auto;
-    /* Bewahrt das Seitenverhältnis des Bildes */
     margin-bottom: 30px;
 }
 
 /* Footer */
 footer {
     width: 100%;
-    padding: 50px 100px;
-    box-sizing: border-box;
-    display: flex;
-    /* Nutze Flexbox */
-    justify-content: space-between;
-    /* Elemente links und rechts verteilen */
+    padding: 100px;
+    display: grid;
+    grid-template-columns: 1fr auto;
     align-items: center;
-    /* Vertikal ausrichten */
 }
 
 /* Copyright links */
@@ -264,14 +252,13 @@ footer {
 #quoteTitle {
     position: absolute;
     top: 50%;
-    left: 100px;
+    padding: 100px;
     transform: translateY(-50%);
     /* Verschiebt den Text um die Hälfte seiner eigenen Höhe nach oben */
-    grid-column: span 1;
 }
 
 .quoteimg img {
-    width: 100%;
+    width: 100vw;
     /* Bild nimmt die volle Breite ein */
     height: auto;
     /* Automatische Höhenanpassung */
@@ -280,11 +267,9 @@ footer {
 
 /* 3.2.) index */
 /* block 1: zu meiner Person */
-#zuMeinerPerson {
+
+.content-block {
     display: grid;
-    /* setzt einen grid-container für das Element */
-    grid-template-columns: repeat(12, 1fr);
-    /* Erstellt 12 gleich große Spalten. 12 Spalten, die jeweils 1fr (gleicher Anteil an der Breite) einnehmen. */
     gap: 50px;
     /* Abstand zwischen den Spalten */
     width: 100%;
@@ -293,6 +278,12 @@ footer {
     align-items: start;
     /* Elemente oben ausrichten */
     padding: 100px;
+}
+
+#zuMeinerPerson {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    /* Erstellt 12 gleich große Spalten. 12 Spalten, die jeweils 1fr (gleicher Anteil an der Breite) einnehmen. */
 }
 
 #zuMeinerPerson .content-text {
@@ -314,12 +305,6 @@ footer {
 /* block 2: Mein Werdegang */
 #MeinWerdegang {
     background-color: #2E2E38;
-    display: grid;
-    gap: 50px;
-    width: 100%;
-    margin: 0 auto;
-    align-items: start;
-    padding: 100px;
     grid-template-rows: auto auto auto;
     /* 3 Zeilen */
 }
@@ -350,15 +335,6 @@ footer {
 }
 
 /* block 3: Meine Projekte */
-#MeineProjekte {
-    display: grid;
-    gap: 50px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 100px;
-    text-align: start;
-}
-
 .project-gallery {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -387,7 +363,7 @@ footer {
     background-color: rgba(0, 0, 0, 0.8);
     opacity: 0;
     transition: opacity 0.3s ease;
-    border-radius: 10px;
+    border-radius: 9px;
 }
 
 .project-item:hover::before {
@@ -426,17 +402,8 @@ footer {
 
 /* 3.3.) projekte */
 /* block 01: Stadtrallye */
-#stadtrallye {
-    display: grid;
-    width: 100%;
-    align-items: start;
-    padding: 100px;
-    gap: 50px;
-}
-
 .project-image-container {
     display: grid;
-    grid-column: span 12;
     grid-template-columns: repeat(3, 1fr);
     gap: 50px;
 }
@@ -451,28 +418,13 @@ footer {
 /* block 02: Urban Gardening */
 #urbanGardening {
     background-color: #2E2E38;
-    display: grid;
-    gap: 50px;
-    width: 100%;
-    margin: 0 auto;
-    align-items: start;
-    padding: 100px;
 }
 
 /* 3.4.) kompetenzen*/
 /* block 01: Kompetenzen */
-#kompetenz {
-    padding: 100px;
-}
-
 #motivation {
     background-color: #2E2E38;
-    display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 50px;
-    width: 100%;
-    align-items: start;
-    padding: 100px;
 }
 
 #ablaufplan {
@@ -493,10 +445,8 @@ footer {
 
 /* block 03: Tools und Sprachen */
 #tools-sprachen {
-    display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 50px;
-    padding: 100px;
+    align-items: stretch;
 }
 
 #tools-sprachen .tools,
@@ -525,33 +475,33 @@ footer {
     text-align: left;
     padding-left: 20px;
 }
+
 #tools-sprachen li {
     padding-bottom: 10px;
 }
 
-/* 3.5.) kontakt */
-#contact{
-    padding: 100px;
-}
-
+/* 3.5.) Kontakt */
 .contact-method {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* Zwei gleich große Spalten */
     gap: 50px;
-    align-items: center;
     width: 100%;
 }
 
 .contact-item {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto 1fr;
     align-items: center;
-    width: 100%;
     background-color: rgba(255, 255, 255, 0.05);
     border-radius: 10px;
     padding: 30px;
+    gap: 30px;
 }
 
 .contact-item img {
-    margin-right: 30px;
+    width: 50px;
+    height: auto;
 }
 
 .contact-item p {
@@ -559,17 +509,17 @@ footer {
 }
 
 .contact-item a {
-font-family: 'Roboto', sans-serif;
-font-weight: normal;
-font-size: 1.25rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    font-size: 1.25rem;
 }
 
 /* 3.6.) impressum */
-#impressum{
-    padding:100px;
+#impressum {
+    padding: 100px;
 }
 
-#impressum p{
+#impressum p {
     margin-bottom: 0;
 }
 
@@ -577,7 +527,7 @@ font-size: 1.25rem;
     font-family: 'Roboto', sans-serif;
     font-weight: normal;
     font-size: 1.25rem;
-    }
+}
 
 
 /* 04 navigation */
@@ -753,7 +703,6 @@ font-size: 1.25rem;
     }
 }
 
-
 /* hero image */
 .hero-image {
     position: relative;
@@ -763,36 +712,25 @@ font-size: 1.25rem;
 }
 
 .hero-image img {
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: auto;
     max-height: 800px;
     object-fit: cover;
     /* bild wird so skaliert, dass es den container vollständig ausfüllt und die proportionen beibehält */
 }
 
 /* 06 button */
-
-.project-button {
-    display: inline-block;
-    /* macht es zu einem block-element für bessere größe */
-}
-
 .button {
     display: inline-block;
     background-color: #85CDAC;
-    /* Grüne Fläche */
     color: #20252C;
-    /* Schwarzer Text */
     padding: 20px 30px;
-    /* Mehr Innenabstand für eine größere Fläche */
     border-radius: 50px;
     /* Rundes Design */
     text-align: center;
-    /* Weiche Übergänge */
     margin-top: 30px;
     font-family: 'Sansation';
     font-weight: bold;
-    /* Fett */
     text-transform: uppercase;
 }
 
@@ -800,7 +738,7 @@ font-size: 1.25rem;
 #backToTop {
     cursor: pointer;
     position: fixed;
-    bottom: 50px;
+    bottom: 200px;
     right: 20px;
     width: 50px;
     height: 50px;
@@ -837,4 +775,154 @@ font-size: 1.25rem;
 
 #backToTop:focus {
     outline: none;
+}
+
+/* 07) responsive*/
+
+/* Media Query für 768px bis 1024px */
+@media (max-width: 1024px) {
+    h1 { font-size: 6.25rem; } /* 100px */
+    h2 { font-size: 2.5rem; }  /* 40px */
+    h3 { font-size: 1.75rem; } /* 28px */
+    h4, a { font-size: 1.375rem; } /* 22px */
+    p { font-size: 1.125rem; }  /* 18px */
+
+    #backToTop {
+        width: 5px;
+        bottom: 90px;
+    }
+
+    #backToTop img {
+        width: 32px;
+        height: auto;
+    }
+
+    .section-number img {
+        width: 140px;
+    }
+
+    .content-block {
+        padding: 50px;
+    }
+
+    #zuMeinerPerson {
+        grid-template-columns: 1fr;
+        /* Nur noch eine Spalte */
+    }
+
+    #profilbild img {
+        max-width: 50%;
+        /* Bildgröße begrenzen */
+        margin: 0 auto;
+    }
+
+    .bildung {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 Spalten statt 3 */
+        gap: 30px;
+    }
+}
+
+/* Media Query für 360px bis 768px */
+@media (max-width: 768px) {
+    h1 { font-size: 4.5rem; } /* 72px */
+    h2 { font-size: 2rem; }  /* 32px */
+    h3 { font-size: 1.5rem; } /* 24px */
+    h4, a { font-size: 1.25rem; } /* 20px */
+    p { font-size: 1rem; }   /* 16px */
+    
+    #backToTop img {
+        width: 24px;
+        height: auto;
+    }
+
+    .section-number img {
+        width: 100px;
+    }
+
+    #profilbild img {
+        max-width: 70%;
+    }
+
+    .project-gallery {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+/* Media Query für 600px und kleiner */
+@media (max-width: 500px) {
+    h1 {
+        font-size: 2.5rem; /* 40px */
+        padding-bottom: 100px;
+    }
+
+    h2 {
+        font-size: 1.5rem; /* 24px */
+        margin: 0;
+        margin-bottom: 30px;
+    }
+
+    h3 {
+        font-size: 1.25rem; /* 20px */
+        margin-top: 0;
+        margin-bottom: 30px;
+    }
+
+    h4 {font-size: 1.125rem; /* 18px */}
+    p {font-size: 1rem; /* 16px */}
+    a, .impressum { font-size: 1.125rem; /* 18px */}
+
+    .button {
+        width: 100%;
+    }
+
+    .content-block {
+        padding: 30px;
+        gap: 20px;
+    }
+
+    #quoteTitle, #zuMeinerPerson, #MeinWerdegang, #MeineProjekte {
+        padding: 50px 30px;
+    }
+
+    .quoteimg img {
+        width: 100%;
+    }
+
+    .section-number img {
+        width: 100px;
+    }
+
+    .quoteimg img {
+        height: 200px;
+        display: block;
+    }
+
+    footer {
+        grid-template-columns: 1fr;
+        display: block;
+    }
+
+    .copyright,
+    .impressum {
+        text-align: left;
+    }
+
+    #zuMeinerPerson .content-text {
+        grid-column: span 4;
+    }
+
+    #profilbild img {
+        max-width: 100%;
+    }
+
+    .bildung, .project-gallery {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 30px;
+    }
+
+    #MeineProjekte {
+        gap: 30px;
+    }
 }
