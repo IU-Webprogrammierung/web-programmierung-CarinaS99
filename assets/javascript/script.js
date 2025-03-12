@@ -32,3 +32,12 @@ function showSlides(n) {
 function currentSlide(n) {
     showSlides(slideIndex = n);
 }
+
+// Funktion, die den Index automatisch erhöht und die Folie wechselt
+function autoSlide() {
+    slideIndex++;
+    showSlides(slideIndex);
+}
+
+// Setze ein Intervall, um alle 4 Sekunden die Folie automatisch zu wechseln
+setInterval(autoSlide, 4000); // 4000 Millisekunden = 4 Sekunden
