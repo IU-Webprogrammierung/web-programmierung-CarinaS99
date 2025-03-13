@@ -163,7 +163,6 @@ h1 {
     transform: translate(-50%, -50%);
     /* Zentriert das h1 exakt */
     font-size: 10rem;
-    /* 1rem = 16px */
     z-index: 1200;
     text-shadow: 2px 2px 5px rgba(65, 65, 65, 0.7);
     /* Der Schatten wird um 2px nach rechts und 2px nach unten verschoben. 5px Weichzeichner-Radius. */
@@ -209,7 +208,6 @@ a {
 
 /* 03) grid + content */
 /* 3.1.) allgemein */
-
 /* section-number */
 .section-number img {
     display: block;
@@ -231,7 +229,6 @@ footer {
 .copyright {
     margin: 0;
     white-space: nowrap;
-    /* Kein Umbruch */
 }
 
 /* Impressum rechts */
@@ -243,12 +240,12 @@ footer {
 
 /* Hover-Effekt (Transparenz auf 0,7 reduzieren) */
 .impressum:hover {
-    opacity: 0.7; /* Reduziert die Transparenz auf 70% */
+    opacity: 0.7;
 }
 
 /* Klick-Effekt (Transparenz auf 0,5 reduzieren) */
 .impressum:active {
-    opacity: 0.5; /* Reduziert die Transparenz auf 50% */
+    opacity: 0.5;
 }
 
 /* zwischenzitat */
@@ -277,7 +274,6 @@ footer {
 
 /* 3.2.) index */
 /* block 1: zu meiner Person */
-
 .content-block {
     display: grid;
     gap: 50px;
@@ -286,7 +282,6 @@ footer {
     margin: 0 auto;
     /* Zentriert den Container */
     align-items: start;
-    /* Elemente oben ausrichten */
     padding: 100px;
 }
 
@@ -405,7 +400,7 @@ footer {
 
 .project-item:active::before {
     opacity: 0.8;
-    background-color: rgba(0, 0, 0, 0.8); /* Optional: Etwas hellere Überlagerung beim Klicken */
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 /* 3.3.) projekte */
@@ -500,20 +495,19 @@ footer {
 .contact-method {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    /* Zwei gleich große Spalten */
     gap: 50px;
     width: 100%;
 }
 
 .contact-item {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    align-items: center;
+    display: flex; /* Bild und Text nebeneinander */
+    align-items: center; /* Vertikal ausrichten */
     background-color: rgba(255, 255, 255, 0.05);
     border-radius: 10px;
     padding: 30px;
     gap: 30px;
     cursor: pointer;
+    font-family: 'Roboto', sans-serif;
 }
 
 .contact-item img {
@@ -521,14 +515,13 @@ footer {
     height: auto;
 }
 
-.contact-item p {
-    margin: 0;
+.contact-text {
+    display: flex;
+    flex-direction: column; /* Text untereinander */
 }
 
-.contact-item a {
-    font-family: 'Roboto', sans-serif;
-    font-weight: normal;
-    font-size: 1.25rem;
+.contact-item p {
+    margin: 0;
 }
 
 /* Hover-Effekt */
@@ -566,7 +559,7 @@ footer {
 }
 
 
-/* 04 navigation */
+/* 04) navigation */
 /* navigation style */
 #navigation {
     position: absolute;
@@ -663,7 +656,6 @@ footer {
 #meny li a {
     font-size: 18px;
     text-transform: uppercase;
-    /* Versalien */
     transition: color 0.3s ease-in-out;
 }
 
@@ -681,6 +673,7 @@ footer {
     left: -250px;
     /* Menü außerhalb des Bildschirms */
 }
+
 
 /* 05 slider */
 .slideshow-container {
@@ -763,7 +756,8 @@ footer {
     /* bild wird so skaliert, dass es den container vollständig ausfüllt und die proportionen beibehält */
 }
 
-/* 06 button */
+
+/* 06) button */
 .button {
     display: inline-block;
     background-color: #85CDAC;
@@ -820,16 +814,16 @@ footer {
     outline: none;
 }
 
-/* 07) responsive*/
 
+/* 07) responsive*/
 /* Media Query für 768px bis 1024px */
 @media (max-width: 1024px) {
     h1 { font-size: 6.25rem; } /* 100px */
     h2 { font-size: 2.5rem; }  /* 40px */
     h3 { 
-        font-size: 1.75rem; 
+        font-size: 1.75rem; /* 28px */
         margin-top: 0;
-    } /* 28px */
+    } 
     h4, a { font-size: 1.375rem; } /* 22px */
     p { font-size: 1.125rem; }  /* 18px */
 
@@ -976,7 +970,7 @@ footer {
     }
 
     .contact-method {
-        grid-template-columns: 1fr; /* Einspaltig bei 768px oder kleiner */
+        grid-template-columns: 1fr;
         gap: 30px;
     }
 }
@@ -1066,7 +1060,12 @@ footer {
     }
 
     .contact-item {
-        grid-template-columns: 1fr; /* Setzt die Items in einer Spalte */
-        gap: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .contact-item img {
+        width: 20%;
     }
 }

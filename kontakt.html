@@ -7,35 +7,22 @@
     <title>Mein Portfolio</title>
     <meta name="author" content="Martrikelnummer 4239178" />
     <link href="assets/css/style.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
 
     <header>
         <h1>Kontakt</h1>
-        <!-- Navigation - Burger Menü animiert -->
-        <nav id="navigation" aria-label="Hauptnavigation">
-            <!-- Unsichtbare Checkbox zum Steuerung des Menüs -->
-            <input type="checkbox" id="menu-toggle" aria-label="Menü anzeigen" aria-expanded="false" />
+        
+        <!-- Navigation mit jQuery -->
+        <div id="navigation-placeholder"></div>
+        <script>
+            $(document).ready(function() {
+                $("#navigation-placeholder").load("assets/components/navigation.html");
+            });
+        </script>
 
-            <!-- Burger-Symbol, das beim Klicken das Menü öffnet -->
-            <label for="menu-toggle" class="burger-icon" aria-label="Menü öffnen" aria-controls="meny" tabindex="0">
-                <span class="visually-hidden">Menü öffnen</span>
-                <div class="bar1"></div>
-                <div class="bar2"></div>
-                <div class="bar3"></div>
-            </label>
-
-            <!-- Menü-Liste -->
-            <div id="meny">
-                <ul class="menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="projekte.html">Projekte</a></li>
-                    <li><a href="kompetenzen.html">Kompetenzen</a></li>
-                    <li><a href="kontakt.html">Kontakt</a></li>
-                </ul>
-            </div>
-        </nav>
     </header>
 
 
@@ -56,25 +43,21 @@
 
                 <!-- kontaktmöglichkeiten -->
                 <div class="contact-method">
-                    <div class="contact-item">
-                        <a href="tel:+4915205891524">
-                            <img src="assets/images/Telefon.svg" alt="Telefon" title="Telefonsymbol">
-                            <div>
-                                <p><strong>Telefon</strong></p>
-                                <a href="tel:+4915205891524">+49 152 05891524</a>
-                            </div>
-                        </a>
-                    </div>
+                    <a href="tel:+4915205891524" class="contact-item">
+                        <img src="assets/images/Telefon.svg" alt="Telefon" title="Telefonsymbol">
+                        <div class="contact-text">
+                            <p><strong>Telefon</strong></p>
+                            <p>+49 152 05891524</p>
+                        </div>
+                    </a>
 
-                    <div class="contact-item">
-                        <a href="mailto:carina.schlachter@iu-study.org">
-                            <img src="assets/images/Mail.svg" alt="E-Mail" title="E-Mail-Symbol">
-                            <div>
-                                <p><strong>E-Mail</strong></p>
-                                <a href="mailto:carina.schlachter@iu-study.org">carina.schlachter@iu-study.org</a>
-                            </div>
-                        </a>
-                    </div>
+                    <a href="mailto:carina.schlachter@iu-study.org" class="contact-item">
+                        <img src="assets/images/Mail.svg" alt="E-Mail" title="E-Mail-Symbol">
+                        <div class="contact-text">
+                            <p><strong>E-Mail</strong></p>
+                            <p>carina.schlachter@iu-study.org</p>
+                        </div>
+                    </a>
                 </div>
 
             </div>
@@ -82,13 +65,13 @@
 
     </main>
 
-    <footer class="content-block">
-        <a id="backToTop" href="#" aria-label="Nach oben scrollen">
-            <img src="assets/images/Back-to-top-button.svg" alt="" title="Nach oben scrollen">
-        </a>
-        <p class="copyright">&copy; 2025 Carina Schlachter</p>
-        <a class="impressum" href="impressum.html">Impressum</a>
-    </footer>
+    <!-- Footer mit jQuery -->
+    <div id="footer-placeholder"></div>
+    <script>
+        $(document).ready(function() {
+            $("#footer-placeholder").load("assets/components/footer.html");
+        });
+    </script>
 
 </body>
 
