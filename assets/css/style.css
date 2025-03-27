@@ -105,36 +105,34 @@ html {
 /* font-face Ermöglicht das Einbinden einer Schriftart, die sich im Projektordner befindet. */
 @font-face {
     font-family: 'Roboto';
-    /* Gibt der Schrift einen Namen, der später im CSS verwendet wird. */
+    font-style: normal;
+    
+    /* Regular */
     src: url('../fonts/Roboto-Regular.ttf') format('truetype');
-    /* Gibt an, wo sich die Schriftart-Datei befindet */
     font-weight: normal;
-    font-style: normal;
+    
+    /* Bold */
+    &.bold {
+        src: url('../fonts/Roboto-Bold.ttf') format('truetype');
+        font-weight: bold;
+    }
 }
 
-/* Roboto bold */
-@font-face {
-    font-family: 'Roboto';
-    src: url('../fonts/Roboto-Bold.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
-}
-
-/* Sansation regular */
 @font-face {
     font-family: 'Sansation';
+    font-style: normal;
+
+    /* Regular */
     src: url('../fonts/Sansation_Regular.ttf') format('truetype');
     font-weight: normal;
-    font-style: normal;
+
+    /* Bold */
+    &.bold {
+        src: url('../fonts/Sansation_Bold.ttf') format('truetype');
+        font-weight: bold;
+    }
 }
 
-/* Sansation bold */
-@font-face {
-    font-family: 'Sansation';
-    src: url('../fonts/Sansation_Bold.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
-}
 
 body {
     font-family: 'Roboto', sans-serif;
@@ -289,31 +287,31 @@ footer {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     /* Erstellt 12 gleich große Spalten. 12 Spalten, die jeweils 1fr (gleicher Anteil an der Breite) einnehmen. */
-}
 
-#zuMeinerPerson .content-text {
-    grid-column: span 8;
+    .content-text {
+        grid-column: span 8;
+    }
 }
 
 #profilbild {
     grid-column: span 4;
     text-align: left;
     width: 100%;
-}
 
-#profilbild img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
+    img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
 }
 
 /* block 2: Mein Werdegang */
 #MeinWerdegang {
     background-color: #2E2E38;
-}
 
-#MeinWerdegang p {
-    margin-bottom: 0;
+    p{
+        margin-bottom: 0;
+    }
 }
 
 .bildung {
@@ -324,13 +322,13 @@ footer {
     gap: 50px;
     /* Abstand zwischen den Listenpunkten */
     padding: 0;
-}
 
-.bildung li {
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 20px;
-    border-radius: 10px;
-    /* Abgerundete Ecken */
+    li {
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 20px;
+        border-radius: 10px;
+        /* Abgerundete Ecken */
+    }
 }
 
 .praktika {
@@ -347,60 +345,57 @@ footer {
 .project-item {
     position: relative;
     overflow: hidden;
-}
 
-.project-item img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    display: block;
-}
+    img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+        display: block;
+    }
 
-.project-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    border-radius: 9px;
-}
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        border-radius: 9px;
+    }
 
-.project-item:hover::before {
-    opacity: 1;
-}
+    &:hover {
+        &::before {
+            opacity: 1;
+        }
 
-.project-item span {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #85CDAC;
-    color: #20252C;
-    padding: 20px 30px;
-    border-radius: 50px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    text-transform: uppercase;
-}
+        span {
+            opacity: 1;
+            display: inline-block;
+        }
+    }
 
-.project-item:hover span {
-    opacity: 1;
-    display: inline-block;
-}
+    &:active {
+        &::before {
+            opacity: 0.5;
+        }
+    }
 
-/* Änderungen für den "active" Zustand */
-.project-item:active::before {
-    opacity: 0.5;
-    /* Schwarze Überlagerung beim Klick auf 50% Transparenz setzen */
-}
-
-.project-item:active::before {
-    opacity: 0.8;
-    background-color: rgba(0, 0, 0, 0.8);
+    span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #85CDAC;
+        color: #20252C;
+        text-transform: uppercase;
+        padding: 20px 30px;
+        border-radius: 50px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
 }
 
 /* 3.3.) projekte */
@@ -413,13 +408,13 @@ footer {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 50px;
-}
 
-.project-image-container img {
-    width: 100%;
-    height: auto;
-    max-width: 100%;
-    border-radius: 10px;
+    img{
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        border-radius: 10px;
+    }
 }
 
 /* block 02: Urban Gardening */
@@ -432,63 +427,57 @@ footer {
 #motivation {
     background-color: #2E2E38;
     grid-template-columns: repeat(2, 1fr);
+
+    .content-text {
+        grid-column: 2;
+    }
 }
 
 #ablaufplan {
     grid-column: 1;
     text-align: left;
     width: 100%;
-}
 
-#ablaufplan img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-}
-
-#motivation .content-text {
-    grid-column: 2;
+    img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
 }
 
 /* block 03: Tools und Sprachen */
 #tools-sprachen {
+    display: grid;
+    gap: 50px;
     grid-template-columns: repeat(2, 1fr);
     align-items: stretch;
-}
-#tools-sprachen h2 {
-    white-space: nowrap;
-    margin: 0;
-}
 
-#tools-sprachen .tools,
-#tools-sprachen .sprachen {
-    text-align: center;
-    background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 10px;
-    padding: 50px;
-}
+    .tools,
+    .sprachen {
+        
+        text-align: center;
+        background-color: rgba(255, 255, 255, 0.05);
+        border-radius: 10px;
+        padding: 50px;
+    }
 
-#tools-sprachen .tools figure,
-#tools-sprachen .sprachen figure {
-    padding-bottom: 50px;
-}
+    .tools {
+        grid-column: 1;
+    }
 
-#tools-sprachen .tools {
-    grid-column: 1;
-}
+    .sprachen {
+        grid-column: 2;
+    }
 
-#tools-sprachen .sprachen {
-    grid-column: 2;
-}
+    ul {
+        list-style: disc;
+        text-align: left;
+        padding-left: 20px;
+    }
 
-#tools-sprachen ul {
-    list-style: disc;
-    text-align: left;
-    padding-left: 20px;
-}
-
-#tools-sprachen li {
-    padding-bottom: 10px;
+    li {
+        padding-bottom: 10px;
+    }
 }
 
 /* 3.5.) Kontakt */
@@ -500,64 +489,61 @@ footer {
 }
 
 .contact-item {
-    display: flex; /* Bild und Text nebeneinander */
-    align-items: center; /* Vertikal ausrichten */
+    display: flex;
+    align-items: center;
     background-color: rgba(255, 255, 255, 0.05);
     border-radius: 10px;
     padding: 30px;
     gap: 30px;
     cursor: pointer;
     font-family: 'Roboto', sans-serif;
-}
 
-.contact-item img {
-    width: 50px;
-    height: auto;
-}
+    img {
+        width: 50px;
+        height: auto;
+    }
 
-.contact-text {
-    display: flex;
-    flex-direction: column; /* Text untereinander */
-}
+    .contact-text {
+        display: flex;
+        flex-direction: column;
+    }
 
-.contact-item p {
-    margin: 0;
-}
+    p {
+        margin: 0;
+    }
 
-/* Hover-Effekt */
-.contact-item:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-}
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
 
-/* Klick-Effekt */
-.contact-item:active {
-    background-color: rgba(255, 255, 255, 0.3);
+    &:active {
+        background-color: rgba(255, 255, 255, 0.3);
+    }
 }
 
 
 /* 3.6.) impressum */
 #impressum {
     gap: 0px;
-}
 
-#impressum h2{
-    margin: 0;
-}
+    h2 {
+        margin: 0;
+    }
 
-#impressum h3{
-    margin-bottom: 10px;
-}
+    h3 {
+        margin-bottom: 10px;
+    }
 
-#impressum p {
-    margin-bottom: 0;
-}
+    p {
+        margin-bottom: 0;
+    }
 
-#impressum a {
-    font-family: 'Roboto', sans-serif;
-    font-weight: normal;
-    font-size: 1.25rem;
+    a {
+        font-family: 'Roboto', sans-serif;
+        font-weight: normal;
+        font-size: 1.25rem;
+    }
 }
-
 
 /* 04) navigation */
 /* navigation style */
@@ -637,26 +623,25 @@ footer {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    ul {
+        text-align: left;
+        }
+    
+    li {
+        margin: 20px 0;
+    
+        a {
+            font-size: 18px;
+            text-transform: uppercase;
+            transition: color 0.3s ease-in-out;
+        }
+        }
 }
 
 /* Menü sichtbar machen, wenn die Checkbox :checked ist */
 #menu-toggle:checked~#meny {
     left: 0;
-}
-
-/* Menü-Liste */
-#meny ul {
-    text-align: left;
-}
-
-#meny li {
-    margin: 20px 0;
-}
-
-#meny li a {
-    font-size: 18px;
-    text-transform: uppercase;
-    transition: color 0.3s ease-in-out;
 }
 
 /* Hover-Effekt für Links im Menü */
@@ -745,15 +730,13 @@ footer {
     position: relative;
     width: 100%;
     z-index: 999;
-    /* sicherstellen, dass das bild unter dem burger-menü liegt */
-}
 
-.hero-image img {
-    width: 100vw;
-    height: auto;
-    max-height: 800px;
-    object-fit: cover;
-    /* bild wird so skaliert, dass es den container vollständig ausfüllt und die proportionen beibehält */
+    img {
+        width: 100vw;
+        height: auto;
+        max-height: 800px;
+        object-fit: cover;
+    }
 }
 
 
@@ -786,32 +769,27 @@ footer {
     border: none;
     padding: 0;
     z-index: 1000;
-}
+    
+    /* Bild im Button */
+    img {
+        width: 48px;
+        height: auto;
+    }
 
-/* Bild im Button */
-#backToTop img {
-    width: 48px;
-    height: auto;
-}
-
-/* Hover- & Fokus-Effekte */
-.button,
-#backToTop {
+    /* Hover- & Fokus-Effekte */
     transition: opacity 0.3s ease;
-}
+    
+    &:hover {
+        opacity: 0.7;
+    }
 
-.button:hover,
-#backToTop:hover {
-    opacity: 0.7;
-}
+    &:active {
+        opacity: 0.5;
+    }
 
-.button:active,
-#backToTop:active {
-    opacity: 0.5;
-}
-
-#backToTop:focus {
-    outline: none;
+    &:focus {
+        outline: none;
+    }
 }
 
 
@@ -820,20 +798,20 @@ footer {
 @media (max-width: 1024px) {
     h1 { font-size: 6.25rem; } /* 100px */
     h2 { font-size: 2.5rem; }  /* 40px */
-    h3 { 
+    h3 {
         font-size: 1.75rem; /* 28px */
         margin-top: 0;
-    } 
+    }
     h4, a { font-size: 1.375rem; } /* 22px */
     p { font-size: 1.125rem; }  /* 18px */
 
     #backToTop {
         right: 3px;
-    }
 
-    #backToTop img {
-        width: 32px;
-        height: auto;
+        img {
+            width: 32px;
+            height: auto;
+        }
     }
 
     .section-number img {
@@ -848,9 +826,11 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    #profilbild img {
-        max-width: 50%;
-        margin: 0 auto;
+    #profilbild {
+        img {
+            max-width: 50%;
+            margin: 0 auto;
+        }
     }
 
     .bildung {
@@ -858,46 +838,53 @@ footer {
         gap: 30px;
     }
 
-    .sliderprojekte{
+    .sliderprojekte {
         top: 10%;
     }
 
     #motivation {
         grid-template-columns: 1fr;
+
+        .content-text {
+            grid-column: 1;
+        }
     }
 
-    #motivation .content-text {
-        grid-column: 1;
+    #block3 {
+        h2{
+            margin: 0;
+        }
     }
 
-    #tools-sprachen .tools,
-    #tools-sprachen .sprachen {
-        padding: 30px;
-    }
+    #tools-sprachen {
+        gap: 30px;
+        
+        .tools,
+        .sprachen {
+            padding: 30px;
+            
+            figure {
+                padding-bottom: 30px;
+                width: 50%;
+                margin: 0 auto;
 
-    #tools-sprachen .tools figure,
-    #tools-sprachen .sprachen figure {
-        padding-bottom: 30px;
-    }
-
-    .tools figure, .sprachen figure {
-        width: 50%;
-        margin: 0 auto;
-    }
-    
-    .tools figure img, .sprachen figure img {
-        width: 100%;
-        height: auto;
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
     }
 
     .contact-method {
         gap: 30px;
     }
 
-    #impressum h3{
+    #impressum h3 {
         margin-top: 30px;
     }
 }
+
 
 /* Media Query für 360px bis 768px */
 @media (max-width: 768px) {
@@ -911,15 +898,17 @@ footer {
         width: 100%;  /* Menübreite auf 100% erweitern, wenn das Menü geöffnet ist */
     }
 
-    #meny ul {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
+    #meny {
+        ul {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
 
-    .meny li a {
-        text-align: center;
+        li a {
+            text-align: center;
+        }
     }
 
     .burger-icon{
@@ -930,7 +919,7 @@ footer {
         width: 100px;
     }
 
-    #profilbild img {
+    #profilbild img{
         max-width: 70%;
     }
 
@@ -947,22 +936,16 @@ footer {
 
     #tools-sprachen {
         grid-template-columns: 1fr;
-    }
 
-    #tools-sprachen .tools,
-    #tools-sprachen .sprachen {
-        grid-template-columns: 1fr;
-        padding: 30px;
-    }
-    
-    #tools-sprachen .tools,
-    #tools-sprachen .sprachen {
-        grid-column: 1;
-    }
+        .tools, .sprachen {
+            grid-column: 1;
+            grid-template-columns: 1fr;
+            padding: 30px;
+        }
 
-    #tools-sprachen .tools figure,
-    #tools-sprachen .sprachen figure {
-        width: 30%;
+        figure{
+            width: 30%;
+        }
     }
 
     .sliderprojekte{
@@ -1022,11 +1005,11 @@ footer {
     footer {
         grid-template-columns: 1fr;
         display: block;
-    }
 
-    .copyright,
-    .impressum {
-        text-align: left;
+        .copyright,
+        .impressum {
+            text-align: left;
+        }
     }
 
     #zuMeinerPerson .content-text {
@@ -1050,9 +1033,11 @@ footer {
         top: 5%;
     }
 
-    #tools-sprachen .tools figure,
-    #tools-sprachen .sprachen figure {
-        width: 50%;
+    #tools-sprachen .tools,
+    #tools-sprachen .sprachen {
+        figure {
+            width: 50%;
+        }
     }
 
     .project-image-container {
@@ -1063,9 +1048,9 @@ footer {
         flex-direction: column;
         align-items: flex-start;
         text-align: left;
-    }
 
-    .contact-item img {
-        width: 20%;
+        img {
+            width: 20%;
+        }
     }
 }

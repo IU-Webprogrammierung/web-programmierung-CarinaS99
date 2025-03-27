@@ -7,22 +7,16 @@
     <title>Mein Portfolio</title>
     <meta name="author" content="Martrikelnummer 4239178" />
     <link href="assets/css/style.css" rel="stylesheet" />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+    <script src="assets/javascript/script.js" defer></script>
 </head>
 
 <body>
 
     <header>
         <h1 class="sliderprojekte">Projekte</h1>
-
         <!-- Navigation mit jQuery -->
-        <div id="navigation-placeholder"></div>
-        <script>
-            $(document).ready(function () {
-                $("#navigation-placeholder").load("assets/components/navigation.html");
-            });
-        </script>
-
+        <div class="navigation-placeholder"></div>
     </header>
 
 
@@ -47,9 +41,6 @@
                 <span class="dot" onclick="currentSlide(2)"></span>
 
             </div>
-
-            <script src="assets/javascript/script.js"></script>
-
         </section>
 
 
@@ -154,12 +145,7 @@
     </main>
 
     <!-- Footer mit jQuery -->
-    <div id="footer-placeholder"></div>
-    <script>
-        $(document).ready(function () {
-            $("#footer-placeholder").load("assets/components/footer.html");
-        });
-    </script>
+    <div class="footer-placeholder"></div>
 
 </body>
 

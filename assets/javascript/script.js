@@ -1,3 +1,13 @@
+// Navigation jQuery
+$(document).ready(function () {
+    $(".navigation-placeholder").load("assets/components/navigation.html");
+});
+
+// Footer jQuery
+$(document).ready(function () {
+    $(".footer-placeholder").load("assets/components/footer.html");
+});
+
 let slideIndex = 1;  // Startindex der Folien
 showSlides(slideIndex);
 

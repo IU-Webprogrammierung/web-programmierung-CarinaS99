@@ -7,22 +7,16 @@
     <title>Mein Portfolio</title>
     <meta name="author" content="Martrikelnummer 4239178" />
     <link href="assets/css/style.css" rel="stylesheet" />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+    <script src="assets/javascript/script.js" defer></script>
 </head>
 
 <body>
 
     <header>
         <h1>Kompetenzen</h1>
-
         <!-- Navigation mit jQuery -->
-        <div id="navigation-placeholder"></div>
-        <script>
-            $(document).ready(function () {
-                $("#navigation-placeholder").load("assets/components/navigation.html");
-            });
-        </script>
-
+        <div class="navigation-placeholder"></div>
     </header>
 
 
@@ -113,7 +107,7 @@
         </aside>
 
         <!-- block 03: Tools und Sprachen -->
-        <section id="tools-sprachen" class="content-block">
+        <section id="block3" class="content-block">
             <div class="content-text">
                 <h2><span class="section-number"><img src="assets/images/03.svg"
                             alt="Die Nummer 03 als Symbol für den dritten Bereich" title="Nummer 03">
@@ -121,46 +115,42 @@
             </div>
 
             <!-- tools section -->
-            <section class="tools">
-                <figure>
-                    <img src="assets/images/Tools.svg" alt="Symbol für Fähigkeiten: Zeichenstiftwerkzeug"
-                        title="Zeichenstiftwerkzeug">
-                </figure>
+            <div id="tools-sprachen">
+                <section class="tools">
+                    <figure>
+                        <img src="assets/images/Tools.svg" alt="Symbol für Fähigkeiten: Zeichenstiftwerkzeug"
+                            title="Zeichenstiftwerkzeug">
+                    </figure>
 
-                <!-- liste tools -->
-                <ul>
-                    <li>Figma</li>
-                    <li>Adobe InDesign, Illustrator, Photoshop, Acrobat, After Effects</li>
-                    <li>HTML and CSS (Basiswissen)</li>
-                    <li>Microsoft Word, Excel, PowerPoint</li>
-                </ul>
-            </section>
+                    <!-- liste tools -->
+                    <ul>
+                        <li>Figma</li>
+                        <li>Adobe InDesign, Illustrator, Photoshop, Acrobat, After Effects</li>
+                        <li>HTML and CSS (Basiswissen)</li>
+                        <li>Microsoft Word, Excel, PowerPoint</li>
+                    </ul>
+                </section>
 
-            <!-- sprachen section -->
-            <section class="sprachen">
-                <figure>
-                    <img src="assets/images/Sprache.svg" alt="Symbol für Sprachkenntnisse: Zwei Sprechblasen"
-                        title="Sprechblasen">
-                </figure>
+                <!-- sprachen section -->
+                <section class="sprachen">
+                    <figure>
+                        <img src="assets/images/Sprache.svg" alt="Symbol für Sprachkenntnisse: Zwei Sprechblasen"
+                            title="Sprechblasen">
+                    </figure>
 
-                <!-- liste sprachen -->
-                <ul>
-                    <li>Deutsch (Muttersprache)</li>
-                    <li>Englisch (Gute Kenntnisse)</li>
-                </ul>
-            </section>
-
+                    <!-- liste sprachen -->
+                    <ul>
+                        <li>Deutsch (Muttersprache)</li>
+                        <li>Englisch (Gute Kenntnisse)</li>
+                    </ul>
+                </section>
+            </div>
         </section>
 
     </main>
 
     <!-- Footer mit jQuery -->
-    <div id="footer-placeholder"></div>
-    <script>
-        $(document).ready(function () {
-            $("#footer-placeholder").load("assets/components/footer.html");
-        });
-    </script>
+    <div class="footer-placeholder"></div>
 
 </body>
 
