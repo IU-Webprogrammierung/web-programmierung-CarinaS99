@@ -13,7 +13,7 @@
         3.5.) kontakt
         3.6.) impressum
 	
-	04) navigation
+	04) navigationF
 
     05) slider
 
@@ -160,7 +160,7 @@ h1 {
     left: 50%;
     transform: translate(-50%, -50%);
     /* Zentriert das h1 exakt */
-    font-size: 10rem;
+    font-size: 7rem;
     z-index: 1200;
     text-shadow: 2px 2px 5px rgba(65, 65, 65, 0.7);
     /* Der Schatten wird um 2px nach rechts und 2px nach unten verschoben. 5px Weichzeichner-Radius. */
@@ -335,6 +335,27 @@ footer {
     margin-top: 50px;
 }
 
+@keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(150px) scale(0.95); /* Viel stärkerer Startzustand */
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1); /* Komplett eingeblendet */
+    }
+  }
+  
+  .animate-entry {
+    animation-name: fadeInUp;
+    animation-duration: 5s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: both;
+    animation-timeline: view(); /* Scrollgesteuerte Animation */
+    animation-range: entry 0% cover 50%;
+  }
+
+
 /* block 3: Meine Projekte */
 .project-gallery {
     display: grid;
@@ -451,6 +472,10 @@ footer {
     gap: 50px;
     grid-template-columns: repeat(2, 1fr);
     align-items: stretch;
+
+    figure {
+        margin-bottom: 30px;
+    }
 
     .tools,
     .sprachen {
@@ -752,6 +777,19 @@ footer {
     font-family: 'Sansation';
     font-weight: bold;
     text-transform: uppercase;
+    transition: opacity 0.3s ease;
+    
+    &:hover {
+        opacity: 0.7;
+    }
+
+    &:active {
+        opacity: 0.5;
+    }
+
+    &:focus {
+        outline: none;
+    }
 }
 
 /* Back-to-Top-Button */
