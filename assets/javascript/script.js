@@ -56,7 +56,7 @@ setInterval(autoSlide, 4000); // 4000 Millisekunden = 4 Sekunden
 function validateForm() {
     let form = document.forms["contactForm"];
     let valid = true;
-    let requiredFields = ['fname', 'lname', 'email', 'message', 'gender', 'betreff']; // Hier die IDs der Pflichtfelder, inkl. "gender" für das select-Feld
+    let requiredFields = ['firma', 'fname', 'lname', 'email', 'message', 'gender', 'number','betreff']; // Hier die IDs der Pflichtfelder, inkl. "gender" für das select-Feld
 
     // Durch alle Pflichtfelder iterieren
     requiredFields.forEach(function(field) {

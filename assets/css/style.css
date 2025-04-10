@@ -66,6 +66,7 @@ footer {
 
 html {
     overflow: hidden scroll;
+    scroll-behavior: smooth;
     height: 100%;
     /* volle höhe des viewports */
     -webkit-hyphens: auto;
