@@ -52,6 +52,46 @@
                             <p>carina.schlachter@iu-study.org</p>
                         </div>
                     </a>
+
+                    <form id="contactForm" name="contactForm" onsubmit="return validateForm()">
+
+                        <h3>Kontaktformular</h3>
+
+                        <label for="fname">Firma</label>
+                        <input type="text">
+
+                        <label for="gender">Anrede *</label>
+                        <select name="gender" id="gender">
+                            <option value="">Bitte wählen</option>
+                            <option value="Herr">Herr</option>
+                            <option value="Frau">Frau</option>
+                            <option value="Divers">Divers</option>
+                        </select>
+
+                        <label for="fname">Vorname *</label>
+                        <input type="text" name="fname" id="fname">
+
+                        <label for="lname">Nachname *</label>
+                        <input type="text" name="lname" id="lname">
+
+                        <label for="email">E-Mail *</label>
+                        <input type="email" name="email" id="email">
+
+                        <label for="fname">Telefonnummer</label>
+                        <input type="text">
+
+                        <label for="betreff">Betreff *</label>
+                        <input type="text" name="betreff" id="betreff">
+
+                        <label for="message">Nachricht *</label>
+                        <textarea name="message" id="message" rows="4"></textarea>
+
+                        <p>* Pflichtfelder</p>
+
+                        <button class="button" type="submit">Absenden</button>
+
+                    </form>
+
                 </div>
 
             </div>

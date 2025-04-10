@@ -51,3 +51,25 @@ function autoSlide() {
 
 // Setze ein Intervall, um alle 4 Sekunden die Folie automatisch zu wechseln
 setInterval(autoSlide, 4000); // 4000 Millisekunden = 4 Sekunden
+
+// Formular-Funktion
+function validateForm() {
+    let form = document.forms["contactForm"];
+    let valid = true;
+    let requiredFields = ['fname', 'lname', 'email', 'message', 'gender', 'betreff']; // Hier die IDs der Pflichtfelder, inkl. "gender" für das select-Feld
+
+    // Durch alle Pflichtfelder iterieren
+    requiredFields.forEach(function(field) {
+        let fieldValue = form[field].value.trim();
+        if (fieldValue === "" || (field === "gender" && form[field].selectedIndex === 0)) {
+            // Wenn das Feld leer ist oder das select-Feld "Bitte wählen" ist, markiere das Feld rot
+            form[field].classList.add("invalid"); // Fügt die Klasse "invalid" hinzu, um das Feld rot zu markieren
+            valid = false; // Setzt valid auf false
+        } else {
+            // Wenn das Feld ausgefüllt ist, entferne die ungültige Klasse
+            form[field].classList.remove("invalid");
+        }
+    });
+
+    return valid; // Gibt false zurück, wenn ein Feld ungültig ist
+}
