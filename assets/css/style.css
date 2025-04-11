@@ -349,11 +349,11 @@ footer {
   
   .animate-entry {
     animation-name: fadeInUp;
-    animation-duration: 5s;
+    animation-duration: 2s;
     animation-timing-function: ease-out;
     animation-fill-mode: both;
     animation-timeline: view(); /* Scrollgesteuerte Animation */
-    animation-range: entry 0% cover 50%;
+    animation-range: entry 0% cover 30%;
   }
 
 
